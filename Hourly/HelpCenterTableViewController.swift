@@ -22,7 +22,7 @@ class HelpCenterTableViewController: UITableViewController, UISearchBarDelegate 
                      HelpInfo(name: "Why are my reported hours 0?", info: "The Total Hours page resets your hours to zero every week on Sunday at midnight. You can also reset your week's hours manually with the \"Reset Hours\" button located at the top left of the home screen.")],
                     /* General FAQ's section */
                     [HelpInfo(name: "How many jobs can I put?", info: "You can save a maximum of five jobs."),
-                     HelpInfo(name: "Can I clear my hours manually?", info: "You can manually clear all of your hours from the week with the \"Reset Hours\" button located at the top left of the home screen. However, you cannot reset the recorded hours for a single day or for a single job.")]
+                     HelpInfo(name: "Can I clear my hours manually?", info: "You can manually clear all of your hours from the week with the arrow icon button located next to the settings button at the top of the home screen. However, you cannot reset the recorded hours for a single day or for a single job."),]
     ]
     
     var filteredData: [[HelpInfo]] = [[]]

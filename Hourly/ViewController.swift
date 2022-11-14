@@ -17,6 +17,7 @@ class ViewController: UIViewController, UIPageViewControllerDelegate, UIPageView
     
     /* Core Data intializations */
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    private var roundingModels = [RoundingOption]()
     private var hideButtonModels = [HideButtons]()
     private var jobPositionsModels = [JobPositions]()
     private var jobPayModels = [JobWages]()
@@ -29,6 +30,7 @@ class ViewController: UIViewController, UIPageViewControllerDelegate, UIPageView
     var tmpString = ["", "", "", "", ""]
     var tmpBool = [true, true, true, true, true]
     var sendJobNumber = 0
+    var rounds = false
 
     var tmp1Hours: [Int16] = [0, 0, 0, 0, 0, 0, 0]
     var tmp2Hours: [Int16] = [0, 0, 0, 0, 0, 0, 0]
@@ -65,9 +67,24 @@ class ViewController: UIViewController, UIPageViewControllerDelegate, UIPageView
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.backgroundColor = .black
+        
+        checkButtons() // show used buttons
+        setButtonTitles() // name buttons
     }
     
     /* get info from Core Data functions */
+    func getRounding(Bool: inout Bool) {
+        do {
+            roundingModels = try context.fetch(RoundingOption.fetchRequest())
+            for info in roundingModels {
+                Bool = info.rounding
+            }
+        }
+        catch {
+            //error
+        }
+    }
+    
     func modifyBool(array: inout [Bool]) { //get if buttons are hidden
         do {
             hideButtonModels = try context.fetch(HideButtons.fetchRequest())
@@ -356,7 +373,7 @@ class ViewController: UIViewController, UIPageViewControllerDelegate, UIPageView
     /* display button functions */
     func checkButtons() { // show used buttons
         modifyBool(array: &tmpBool)
-        job1Button.isHidden = tmpBool[0]
+        job1Button.isHidden = tmpBool[0] 
         job2Button.isHidden = tmpBool[1]
         job3Button.isHidden = tmpBool[2]
         job4Button.isHidden = tmpBool[3]
@@ -382,7 +399,7 @@ class ViewController: UIViewController, UIPageViewControllerDelegate, UIPageView
     
     @IBAction func addJobButton(_ sender: Any) {
         if job5Button.isHidden == false {
-            let alert = UIAlertController(title: "Job Limit Reached", message: "Delete at job option before adding a new job.", preferredStyle: .alert)
+            let alert = UIAlertController(title: "Job Limit Reached", message: "Delete a job option before adding a new job.", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
             present(alert, animated: true)
         }
@@ -453,7 +470,7 @@ class ViewController: UIViewController, UIPageViewControllerDelegate, UIPageView
             save4HoursFromTmp(array: &tmp5Hours)
         }
         save5HoursFromTmp(array: &clearAll)
-        showDelete1Action(i: 0)
+        showDeleteAction(i: 0)
     }
     
     @objc func deleteButton2() {
@@ -470,7 +487,7 @@ class ViewController: UIViewController, UIPageViewControllerDelegate, UIPageView
             save4HoursFromTmp(array: &tmp5Hours)
         }
         save5HoursFromTmp(array: &clearAll)
-        showDelete2Action(i: 1)
+        showDeleteAction(i: 1)
     }
     
     @objc func deleteButton3() {
@@ -483,7 +500,7 @@ class ViewController: UIViewController, UIPageViewControllerDelegate, UIPageView
             save4HoursFromTmp(array: &tmp5Hours)
         }
         save5HoursFromTmp(array: &clearAll)
-        showDelete3Action(i: 2)
+        showDeleteAction(i: 2)
     }
     
     @objc func deleteButton4() {
@@ -492,65 +509,25 @@ class ViewController: UIViewController, UIPageViewControllerDelegate, UIPageView
             save4HoursFromTmp(array: &tmp5Hours)
         }
         save5HoursFromTmp(array: &clearAll)
-        showDelete4Action(i: 3)
+        showDeleteAction(i: 3)
     }
     
     @objc func deleteButton5() {
         save5HoursFromTmp(array: &clearAll)
-        showDelete5Action(i: 4)
+        showDeleteAction(i: 4)
     }
     
-    func showDelete1Action(i: Int) { // delete button alert
+    func showDeleteAction(i: Int) { // delete button alert
         let sheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         sheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         sheet.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { (_) in
-            self.removeButton(index: i, array: &self.tmp1Hours)
+            self.removeButton(index: i)
         }))
         
         present(sheet, animated: true)
     }
     
-    func showDelete2Action(i: Int) { // delete button alert
-        let sheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        sheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-        sheet.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { (_) in
-            self.removeButton(index: i, array: &self.tmp2Hours)
-        }))
-        
-        present(sheet, animated: true)
-    }
-    
-    func showDelete3Action(i: Int) { // delete button alert
-        let sheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        sheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-        sheet.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { (_) in
-            self.removeButton(index: i, array: &self.tmp3Hours)
-        }))
-        
-        present(sheet, animated: true)
-    }
-    
-    func showDelete4Action(i: Int) { // delete button alert
-        let sheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        sheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-        sheet.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { (_) in
-            self.removeButton(index: i, array: &self.tmp4Hours)
-        }))
-        
-        present(sheet, animated: true)
-    }
-    
-    func showDelete5Action(i: Int) { // delete button alert
-        let sheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        sheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-        sheet.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { (_) in
-            self.removeButton(index: i, array: &self.tmp5Hours)
-        }))
-        
-        present(sheet, animated: true)
-    }
-    
-    func removeButton(index: Int, array: inout [Int16]) { // delete button
+    func removeButton(index: Int) { // delete button
         modify(array: &tmpString)
         modifyPay(array: &tmpDouble)
         modifyBool(array: &tmpBool)
@@ -632,7 +609,6 @@ class ViewController: UIViewController, UIPageViewControllerDelegate, UIPageView
     }
     
     @IBAction func resetHours(_ sender: Any) { // reset hours on command
-        
         let alert = UIAlertController(title: "Reset Hours?", message: "Are you sure you want to reset your hours?", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
         alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (_) in
@@ -651,6 +627,7 @@ class ViewController: UIViewController, UIPageViewControllerDelegate, UIPageView
         modifyBool(array: &tmpBool)
         modifyPay(array: &tmpDouble)
         modify(array: &tmpString)
+        getRounding(Bool: &rounds)
         
         if tmpBool.dropFirst().allSatisfy({ $0 == tmpBool.first }) {
             let alert = UIAlertController(title: "Missing Jobs", message: "Add a job option to see your total work hours.", preferredStyle: .alert)
@@ -680,10 +657,11 @@ class ViewController: UIViewController, UIPageViewControllerDelegate, UIPageView
         for row in pages {
             var sum = 0.0
             for i in 1...7 {
-                sum += ((Double(row[i]) ?? 0.0) / 60).rounded(.toNearestOrAwayFromZero)
+                if rounds { sum += ((Double(row[i]) ?? 0.0) / 60).rounded(.toNearestOrAwayFromZero) }
+                else { sum += (Double(row[i]) ?? 0.0) / 60 }
             }
             sum = round(sum) * (Double(row[8]) ?? 0.0)
-            let vc = TotalHoursViewController(with: row[0], with: row[1], with: row[2], with: row[3], with: row[4], with: row[5], with: row[6], with: row[7], with: String(sum))
+            let vc = TotalHoursViewController(with: row[0], with: row[2], with: row[3], with: row[4], with: row[5], with: row[6], with: row[7], with: row[1], with: String(sum), with: rounds)
             myControllers.append(vc)
         }
         

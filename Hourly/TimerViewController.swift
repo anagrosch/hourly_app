@@ -43,23 +43,23 @@ class TimerViewController: UIViewController {
         switch jobNumber {
         case 1:
             ViewController().modify1Hours(array: &hoursWorked)
-            hoursWorked[Date().dayNumberOfWeek()! - 2] += num
+            hoursWorked[Date().dayNumberOfWeek()! - 1] += num
             ViewController().save1HoursFromTmp(array: &hoursWorked)
         case 2:
             ViewController().modify2Hours(array: &hoursWorked)
-            hoursWorked[Date().dayNumberOfWeek()! - 2] += num
+            hoursWorked[Date().dayNumberOfWeek()! - 1] += num
             ViewController().save2HoursFromTmp(array: &hoursWorked)
         case 3:
             ViewController().modify3Hours(array: &hoursWorked)
-            hoursWorked[Date().dayNumberOfWeek()! - 2] += num
+            hoursWorked[Date().dayNumberOfWeek()! - 1] += num
             ViewController().save3HoursFromTmp(array: &hoursWorked)
         case 4:
             ViewController().modify4Hours(array: &hoursWorked)
-            hoursWorked[Date().dayNumberOfWeek()! - 2] += num
+            hoursWorked[Date().dayNumberOfWeek()! - 1] += num
             ViewController().save4HoursFromTmp(array: &hoursWorked)
         case 5:
             ViewController().modify5Hours(array: &hoursWorked)
-            hoursWorked[Date().dayNumberOfWeek()! - 2] += num
+            hoursWorked[Date().dayNumberOfWeek()! - 1] += num
             ViewController().save5HoursFromTmp(array: &hoursWorked)
         default:
             displayFinalTime.text = "Error"

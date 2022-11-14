@@ -66,6 +66,9 @@
         <attribute name="pay4" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="pay5" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
     </entity>
+    <entity name="RoundingOption" representedClassName="RoundingOption" syncable="YES">
+        <attribute name="rounding" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+    </entity>
     <elements>
         <element name="HideButtons" positionX="-9" positionY="126" width="128" height="104"/>
         <element name="Job1Info" positionX="-54" positionY="-9" width="128" height="134"/>
@@ -75,5 +78,6 @@
         <element name="Job5Info" positionX="18" positionY="90" width="128" height="134"/>
         <element name="JobPositions" positionX="36" positionY="108" width="128" height="104"/>
         <element name="JobWages" positionX="-9" positionY="99" width="128" height="104"/>
+        <element name="RoundingOption" positionX="-9" positionY="99" width="128" height="44"/>
     </elements>
 </model>

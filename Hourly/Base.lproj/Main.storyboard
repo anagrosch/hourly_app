@@ -3,11 +3,145 @@
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Settings View Controller-->
+        <scene sceneID="UVN-fL-Qqg">
+            <objects>
+                <viewController id="wp6-a9-SSm" customClass="SettingsViewController" customModule="Hourly" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="srl-RJ-k29">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CMs-B9-ajV">
+                                <rect key="frame" x="275" y="399" width="46" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="arrow.right" catalog="system">
+                                    <color key="baseForegroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="goToJob5:" destination="wp6-a9-SSm" eventType="touchUpInside" id="AZ3-Mz-kHD"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZMr-wJ-e44">
+                                <rect key="frame" x="275" y="360" width="46" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="arrow.right" catalog="system">
+                                    <color key="baseForegroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="goToJob4:" destination="wp6-a9-SSm" eventType="touchUpInside" id="Gfv-KW-BVO"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yMy-hG-bi4">
+                                <rect key="frame" x="275" y="321" width="46" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="arrow.right" catalog="system">
+                                    <color key="baseForegroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="goToJob3:" destination="wp6-a9-SSm" eventType="touchUpInside" id="JSh-cH-tPT"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dqo-hQ-piX">
+                                <rect key="frame" x="275" y="282" width="46" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="arrow.right" catalog="system">
+                                    <color key="baseForegroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="goToJob2:" destination="wp6-a9-SSm" eventType="touchUpInside" id="yA2-Vd-Nk6"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pKg-tA-fA5">
+                                <rect key="frame" x="275" y="243" width="46" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="arrow.right" catalog="system">
+                                    <color key="baseForegroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="goToJob1:" destination="wp6-a9-SSm" eventType="touchUpInside" id="3VV-Bd-IxK"/>
+                                </connections>
+                            </button>
+                            <searchBar contentMode="redraw" barStyle="black" text="" id="KZr-gP-Utk">
+                                <rect key="frame" x="0.0" y="88" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <color key="barTintColor" red="0.1351884391" green="0.51199053409999995" blue="0.57566230979999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3Zq-mB-ifh">
+                                <rect key="frame" x="275" y="196" width="51" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </switch>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Zp5-fN-fek"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="h0W-7u-UJH"/>
+                    <connections>
+                        <outlet property="arrow1" destination="pKg-tA-fA5" id="uPa-eF-MdT"/>
+                        <outlet property="arrow2" destination="Dqo-hQ-piX" id="15L-Ko-Oky"/>
+                        <outlet property="arrow3" destination="yMy-hG-bi4" id="mAn-1j-gBA"/>
+                        <outlet property="arrow4" destination="ZMr-wJ-e44" id="WEe-5I-WmF"/>
+                        <outlet property="arrow5" destination="CMs-B9-ajV" id="w34-cK-reZ"/>
+                        <outlet property="enableSwitch" destination="3Zq-mB-ifh" id="ygy-wn-7gY"/>
+                        <outlet property="searchBar" destination="KZr-gP-Utk" id="rLa-IJ-oks"/>
+                        <segue destination="DAt-cG-IcW" kind="push" identifier="jobDetails" id="qbp-2L-xAA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HvR-x9-pLU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-778" y="-684"/>
+        </scene>
+        <!--Job Details View Controller-->
+        <scene sceneID="ChV-WI-hYv">
+            <objects>
+                <viewController id="DAt-cG-IcW" customClass="JobDetailsViewController" customModule="Hourly" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ocd-kg-B9d">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AQA-nJ-KJA">
+                                <rect key="frame" x="30" y="128" width="33" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wage" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qyO-DC-FKb">
+                                <rect key="frame" x="30" y="189" width="44" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="O90-jS-8CY"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="AQA-nJ-KJA" firstAttribute="top" secondItem="O90-jS-8CY" secondAttribute="top" constant="40" id="AWg-il-e94"/>
+                            <constraint firstItem="qyO-DC-FKb" firstAttribute="top" secondItem="AQA-nJ-KJA" secondAttribute="bottom" constant="40" id="gQW-z3-04H"/>
+                            <constraint firstItem="AQA-nJ-KJA" firstAttribute="leading" secondItem="O90-jS-8CY" secondAttribute="leading" constant="30" id="kyK-m1-7BW"/>
+                            <constraint firstItem="qyO-DC-FKb" firstAttribute="leading" secondItem="O90-jS-8CY" secondAttribute="leading" constant="30" id="u4i-oj-krg"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="MOh-fi-6CT"/>
+                    <connections>
+                        <outlet property="titleLabel" destination="AQA-nJ-KJA" id="p41-S2-4Ak"/>
+                        <outlet property="wageLabel" destination="qyO-DC-FKb" id="Xo4-ew-Z6C"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XkD-42-N8I" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="20" y="-684"/>
+        </scene>
         <!--Help Center-->
         <scene sceneID="oEL-HO-SUf">
             <objects>
@@ -16,7 +150,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <searchBar key="tableHeaderView" contentMode="redraw" barStyle="black" id="fQh-7J-Uzk">
+                        <searchBar key="tableHeaderView" contentMode="redraw" barStyle="black" text="" id="fQh-7J-Uzk">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <color key="barTintColor" red="0.1351884391" green="0.51199053409999995" blue="0.57566230979999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -289,42 +423,59 @@
                     </view>
                     <navigationItem key="navigationItem" id="IXb-7a-qop">
                         <nil key="title"/>
-                        <barButtonItem key="leftBarButtonItem" style="plain" id="jZR-uA-Rj1">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="qQb-fS-Zuo">
-                                <rect key="frame" x="16" y="5" width="137.33333333333334" height="34.333333333333336"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="RESET HOURS" titleAlignment="center">
-                                    <backgroundConfiguration key="background">
-                                        <color key="strokeColor" red="0.1351884391" green="0.51199053409999995" blue="0.57566230979999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </backgroundConfiguration>
-                                    <color key="baseForegroundColor" red="0.1351884391" green="0.51199053409999995" blue="0.57566230979999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </buttonConfiguration>
+                        <rightBarButtonItems>
+                            <barButtonItem style="plain" id="zDx-Vg-MAt">
+                                <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jjj-z4-tmQ">
+                                    <rect key="frame" x="335" y="9.6666666666666643" width="24" height="25"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <state key="normal" title="Button"/>
+                                    <buttonConfiguration key="configuration" style="plain" title="">
+                                        <backgroundConfiguration key="background" cornerRadius="16">
+                                            <imageReference key="image" image="info.circle" catalog="system" renderingMode="hierarchical">
+                                                <hierarchicalColors>
+                                                    <color red="0.1351884391" green="0.51199053409999995" blue="0.57566230979999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color red="0.1351884391" green="0.51199053409999995" blue="0.57566230979999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color systemColor="tertiaryLabelColor"/>
+                                                </hierarchicalColors>
+                                            </imageReference>
+                                        </backgroundConfiguration>
+                                    </buttonConfiguration>
+                                    <connections>
+                                        <segue destination="NSl-mc-Pcm" kind="push" id="9zL-o9-3dd"/>
+                                    </connections>
+                                </button>
+                            </barButtonItem>
+                            <barButtonItem title="Item" width="35" id="T8C-yA-A9Y">
+                                <imageReference key="image" image="gearshape" catalog="system" symbolScale="large"/>
+                                <inset key="largeContentSizeImageInsets" minX="0.0" minY="1" maxX="0.0" maxY="1"/>
+                                <color key="tintColor" red="0.10830296566719649" green="0.44361435399290139" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
-                                    <action selector="resetHours:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Kuu-RO-xvg"/>
+                                    <segue destination="wp6-a9-SSm" kind="push" id="L8w-fG-T5P"/>
                                 </connections>
-                            </button>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="zDx-Vg-MAt">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="Jjj-z4-tmQ">
-                                <rect key="frame" x="279" y="5" width="80" height="34.333333333333336"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="80" id="IDR-LG-pdH"/>
-                                    <constraint firstAttribute="height" constant="30" id="qWT-br-cVT"/>
-                                </constraints>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="HELP" titleAlignment="center">
-                                    <backgroundConfiguration key="background">
-                                        <color key="strokeColor" red="0.1351884391" green="0.51199053409999995" blue="0.57566230979999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </backgroundConfiguration>
-                                    <color key="baseForegroundColor" red="0.1351884391" green="0.51199053409999995" blue="0.57566230979999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <segue destination="NSl-mc-Pcm" kind="push" id="9zL-o9-3dd"/>
-                                </connections>
-                            </button>
-                        </barButtonItem>
+                            </barButtonItem>
+                            <barButtonItem style="plain" id="jZR-uA-Rj1">
+                                <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qQb-fS-Zuo">
+                                    <rect key="frame" x="245" y="9.6666666666666643" width="25" height="25"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <state key="normal" title="Button"/>
+                                    <buttonConfiguration key="configuration" style="plain" title="" titleAlignment="center">
+                                        <backgroundConfiguration key="background">
+                                            <imageReference key="image" image="arrow.counterclockwise" catalog="system" renderingMode="hierarchical">
+                                                <hierarchicalColors>
+                                                    <color red="0.1351884391" green="0.51199053409999995" blue="0.57566230979999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color red="0.1351884391" green="0.51199053409999995" blue="0.57566230979999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color systemColor="tertiaryLabelColor"/>
+                                                </hierarchicalColors>
+                                            </imageReference>
+                                        </backgroundConfiguration>
+                                        <color key="baseForegroundColor" red="0.1351884391" green="0.51199053409999995" blue="0.57566230979999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </buttonConfiguration>
+                                    <connections>
+                                        <action selector="resetHours:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Kuu-RO-xvg"/>
+                                    </connections>
+                                </button>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="job1Button" destination="n69-Yn-VMV" id="eON-QL-4aq"/>
@@ -549,11 +700,18 @@
         </scene>
     </scenes>
     <resources>
+        <image name="arrow.counterclockwise" catalog="system" width="115" height="128"/>
+        <image name="arrow.right" catalog="system" width="128" height="98"/>
+        <image name="gearshape" catalog="system" width="128" height="121"/>
+        <image name="info.circle" catalog="system" width="128" height="121"/>
         <systemColor name="systemIndigoColor">
             <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemTealColor">
             <color red="0.18823529411764706" green="0.69019607843137254" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="tertiaryLabelColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

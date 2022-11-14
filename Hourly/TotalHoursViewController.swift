@@ -202,15 +202,26 @@ class TotalHoursViewController: UIViewController {
     }()
     
     
-    init(with text2: String, with text3: String, with text4: String, with text5: String, with text6: String, with text7: String, with text8: String, with text9: String, with text10: String) {
+    init(with text2: String, with text3: String, with text4: String, with text5: String, with text6: String, with text7: String, with text8: String, with text9: String, with text10: String, with rounding: Bool) {
         self.myText2 = text2
-        self.myText3 = String(((Double(text3) ?? 0.0) / 60).rounded(.toNearestOrAwayFromZero))
-        self.myText4 = String(((Double(text4) ?? 0.0) / 60).rounded(.toNearestOrAwayFromZero))
-        self.myText5 = String(((Double(text5) ?? 0.0) / 60).rounded(.toNearestOrAwayFromZero))
-        self.myText6 = String(((Double(text6) ?? 0.0) / 60).rounded(.toNearestOrAwayFromZero))
-        self.myText7 = String(((Double(text7) ?? 0.0) / 60).rounded(.toNearestOrAwayFromZero))
-        self.myText8 = String(((Double(text8) ?? 0.0) / 60).rounded(.toNearestOrAwayFromZero))
-        self.myText9 = String(((Double(text9) ?? 0.0) / 60).rounded(.toNearestOrAwayFromZero))
+        if rounding {
+            self.myText3 = String(((Double(text3) ?? 0.0) / 60).rounded(.toNearestOrAwayFromZero))
+            self.myText4 = String(((Double(text4) ?? 0.0) / 60).rounded(.toNearestOrAwayFromZero))
+            self.myText5 = String(((Double(text5) ?? 0.0) / 60).rounded(.toNearestOrAwayFromZero))
+            self.myText6 = String(((Double(text6) ?? 0.0) / 60).rounded(.toNearestOrAwayFromZero))
+            self.myText7 = String(((Double(text7) ?? 0.0) / 60).rounded(.toNearestOrAwayFromZero))
+            self.myText8 = String(((Double(text8) ?? 0.0) / 60).rounded(.toNearestOrAwayFromZero))
+            self.myText9 = String(((Double(text9) ?? 0.0) / 60).rounded(.toNearestOrAwayFromZero))
+        }
+        else {
+            self.myText3 = String((Double(text3) ?? 0.0) / 60)
+            self.myText4 = String((Double(text4) ?? 0.0) / 60)
+            self.myText5 = String((Double(text5) ?? 0.0) / 60)
+            self.myText6 = String((Double(text6) ?? 0.0) / 60)
+            self.myText7 = String((Double(text7) ?? 0.0) / 60)
+            self.myText8 = String((Double(text8) ?? 0.0) / 60)
+            self.myText9 = String((Double(text9) ?? 0.0) / 60)
+        }
         self.myText10 = text10
         myTextView2.text = self.myText2
         myTextView3.text = self.myText3
