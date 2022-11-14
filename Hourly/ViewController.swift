@@ -51,6 +51,14 @@ class ViewController: UIViewController, UIPageViewControllerDelegate, UIPageView
         checkButtons() // show used buttons
         setButtonTitles() // name buttons
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.navigationBar.backgroundColor = .black
+        
+        checkButtons() // show used buttons
+        setButtonTitles() // name buttons
+        
         let today = Date()
         if Date().dayNumberOfWeek() == 2 {
             let date = Date.startOfDay(today)
@@ -62,14 +70,6 @@ class ViewController: UIViewController, UIPageViewControllerDelegate, UIPageView
                               repeats: false)
             RunLoop.main.add(timer, forMode: .common)
         }
-        
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        self.navigationController?.navigationBar.backgroundColor = .black
-        
-        checkButtons() // show used buttons
-        setButtonTitles() // name buttons
     }
     
     /* get info from Core Data functions */
@@ -660,7 +660,8 @@ class ViewController: UIViewController, UIPageViewControllerDelegate, UIPageView
                 if rounds { sum += ((Double(row[i]) ?? 0.0) / 60).rounded(.toNearestOrAwayFromZero) }
                 else { sum += (Double(row[i]) ?? 0.0) / 60 }
             }
-            sum = round(sum) * (Double(row[8]) ?? 0.0)
+            if rounds { sum = round(sum) * (Double(row[8]) ?? 0.0) }
+            else { sum *= (Double(row[8]) ?? 0.0) }
             let vc = TotalHoursViewController(with: row[0], with: row[2], with: row[3], with: row[4], with: row[5], with: row[6], with: row[7], with: row[1], with: String(sum), with: rounds)
             myControllers.append(vc)
         }
