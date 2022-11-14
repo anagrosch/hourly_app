@@ -9,7 +9,7 @@ available in the TOTAL HOURS page.
 Add jobs with the ADD JOB button. Each job requires a job title to be displayed as a button and its hourly wage.
 Delete a button by pressing and holding the job button.
 
-To change a job's information (job title and/or wage), go to Settings -> <job number> and change the text.
+To change a job's information (job title and/or wage), go to Settings -> \<job number\> and change the text.
 
 Pressing a job's button transfers you to its timer for when you are working that job.
 
