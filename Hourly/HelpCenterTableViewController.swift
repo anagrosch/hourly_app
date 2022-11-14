@@ -18,7 +18,7 @@ class HelpCenterTableViewController: UITableViewController, UISearchBarDelegate 
     
     let sections = ["Troubleshooting", "General FAQ's"]
     let dataText = [[HelpInfo(name: "How do I remove a job?", info: "To remove a button, press and hold the button until a pop up comes on your screen. Then select either \"Delete\" or \"Cancel\"."),
-                     HelpInfo(name: "How do I edit a job's information?", info: "You cannot edit an already existing job button's information. If you need to change the information, you must delete the option with an error and create a new option."),
+                     HelpInfo(name: "How do I edit a job's information?", info: "Go to Settings, then press the job button that you want to change under ALL JOB INFO. Change the job's title and/or wage."),
                      HelpInfo(name: "Why are my reported hours 0?", info: "The Total Hours page resets your hours to zero every week on Sunday at midnight. You can also reset your week's hours manually with the \"Reset Hours\" button located at the top left of the home screen.")],
                     /* General FAQ's section */
                     [HelpInfo(name: "How many jobs can I put?", info: "You can save a maximum of five jobs."),

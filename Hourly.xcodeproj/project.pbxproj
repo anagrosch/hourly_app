@@ -29,8 +29,6 @@
 		1715768927E2E9B10043AEB2 /* Job5Info+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1715768727E2E9B10043AEB2 /* Job5Info+CoreDataProperties.swift */; };
 		1715768B27E2F8950043AEB2 /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1715768A27E2F8950043AEB2 /* TimerViewController.swift */; };
 		172A60FB29215B9600E5E4C9 /* InAppSettingsKit in Frameworks */ = {isa = PBXBuildFile; productRef = 172A60FA29215B9600E5E4C9 /* InAppSettingsKit */; };
-		172A60FF29215C0500E5E4C9 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 172A60FE29215C0500E5E4C9 /* Settings.bundle */; };
-		172A61022921684900E5E4C9 /* SettingsBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172A61012921684900E5E4C9 /* SettingsBundle.swift */; };
 		172A610429216E5300E5E4C9 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172A610329216E5300E5E4C9 /* DetailsViewController.swift */; };
 		172A610629219E6700E5E4C9 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172A610529219E6700E5E4C9 /* SettingsViewController.swift */; };
 		172A61082921CCFE00E5E4C9 /* JobDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172A61072921CCFE00E5E4C9 /* JobDetailsViewController.swift */; };
@@ -68,8 +66,6 @@
 		1715768627E2E9B10043AEB2 /* Job5Info+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Job5Info+CoreDataClass.swift"; sourceTree = "<group>"; };
 		1715768727E2E9B10043AEB2 /* Job5Info+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Job5Info+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		1715768A27E2F8950043AEB2 /* TimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
-		172A60FE29215C0500E5E4C9 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
-		172A61012921684900E5E4C9 /* SettingsBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsBundle.swift; sourceTree = "<group>"; };
 		172A610329216E5300E5E4C9 /* DetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		172A610529219E6700E5E4C9 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		172A61072921CCFE00E5E4C9 /* JobDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobDetailsViewController.swift; sourceTree = "<group>"; };
@@ -127,7 +123,6 @@
 				1715763327DFD2C20043AEB2 /* SceneDelegate.swift */,
 				1715763527DFD2C20043AEB2 /* ViewController.swift */,
 				1715764827DFD54B0043AEB2 /* AddButtonViewController.swift */,
-				172A61012921684900E5E4C9 /* SettingsBundle.swift */,
 				1715768A27E2F8950043AEB2 /* TimerViewController.swift */,
 				1779383B27E4D642006ED568 /* TotalHoursViewController.swift */,
 				1776DE7127E6788F003B056D /* HelpCenterTableViewController.swift */,
@@ -139,7 +134,6 @@
 				1715763F27DFD2C40043AEB2 /* LaunchScreen.storyboard */,
 				1715764227DFD2C40043AEB2 /* Info.plist */,
 				1715763A27DFD2C20043AEB2 /* Hourly.xcdatamodeld */,
-				172A60FE29215C0500E5E4C9 /* Settings.bundle */,
 			);
 			path = Hourly;
 			sourceTree = "<group>";
@@ -291,7 +285,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				1715764127DFD2C40043AEB2 /* LaunchScreen.storyboard in Resources */,
-				172A60FF29215C0500E5E4C9 /* Settings.bundle in Resources */,
 				1715763E27DFD2C40043AEB2 /* Assets.xcassets in Resources */,
 				1715763927DFD2C20043AEB2 /* Main.storyboard in Resources */,
 			);
@@ -317,7 +310,6 @@
 				176CAB2F27E3928600517C14 /* HideButtons+CoreDataProperties.swift in Sources */,
 				172A610429216E5300E5E4C9 /* DetailsViewController.swift in Sources */,
 				1779383C27E4D642006ED568 /* TotalHoursViewController.swift in Sources */,
-				172A61022921684900E5E4C9 /* SettingsBundle.swift in Sources */,
 				1715768427E2E9600043AEB2 /* Job4Info+CoreDataClass.swift in Sources */,
 				1715768827E2E9B10043AEB2 /* Job5Info+CoreDataClass.swift in Sources */,
 				1715767927E2E80D0043AEB2 /* Job1Info+CoreDataProperties.swift in Sources */,

@@ -122,25 +122,49 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3B2-oW-gRR">
+                                <rect key="frame" x="159" y="121" width="180" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="J0g-rW-Lmo"/>
+                                    <constraint firstAttribute="width" constant="180" id="Pth-b1-zZx"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Xfu-7x-m5k">
+                                <rect key="frame" x="159" y="182" width="180" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="180" id="BQr-Tb-fPp"/>
+                                    <constraint firstAttribute="height" constant="34" id="amk-UM-mVJ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="O90-jS-8CY"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="3B2-oW-gRR" firstAttribute="top" secondItem="O90-jS-8CY" secondAttribute="top" constant="33" id="25A-F3-9Wl"/>
                             <constraint firstItem="AQA-nJ-KJA" firstAttribute="top" secondItem="O90-jS-8CY" secondAttribute="top" constant="40" id="AWg-il-e94"/>
+                            <constraint firstItem="O90-jS-8CY" firstAttribute="trailing" secondItem="Xfu-7x-m5k" secondAttribute="trailing" constant="36" id="gN8-aj-lV0"/>
                             <constraint firstItem="qyO-DC-FKb" firstAttribute="top" secondItem="AQA-nJ-KJA" secondAttribute="bottom" constant="40" id="gQW-z3-04H"/>
+                            <constraint firstItem="Xfu-7x-m5k" firstAttribute="top" secondItem="3B2-oW-gRR" secondAttribute="bottom" constant="27" id="jvl-6N-JId"/>
                             <constraint firstItem="AQA-nJ-KJA" firstAttribute="leading" secondItem="O90-jS-8CY" secondAttribute="leading" constant="30" id="kyK-m1-7BW"/>
                             <constraint firstItem="qyO-DC-FKb" firstAttribute="leading" secondItem="O90-jS-8CY" secondAttribute="leading" constant="30" id="u4i-oj-krg"/>
+                            <constraint firstItem="O90-jS-8CY" firstAttribute="trailing" secondItem="3B2-oW-gRR" secondAttribute="trailing" constant="36" id="xuQ-en-Kl4"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="MOh-fi-6CT"/>
                     <connections>
+                        <outlet property="titleField" destination="3B2-oW-gRR" id="yFp-3Z-ogh"/>
                         <outlet property="titleLabel" destination="AQA-nJ-KJA" id="p41-S2-4Ak"/>
+                        <outlet property="wageField" destination="Xfu-7x-m5k" id="HOY-DK-dws"/>
                         <outlet property="wageLabel" destination="qyO-DC-FKb" id="Xo4-ew-Z6C"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XkD-42-N8I" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="20" y="-684"/>
+            <point key="canvasLocation" x="20" y="-684.23645320197045"/>
         </scene>
         <!--Help Center-->
         <scene sceneID="oEL-HO-SUf">
