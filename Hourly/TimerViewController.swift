@@ -43,23 +43,23 @@ class TimerViewController: UIViewController {
         switch jobNumber {
         case 1:
             ViewController().modify1Hours(array: &hoursWorked)
-            hoursWorked[Date().dayNumberOfWeek()! - 1] += num
+            hoursWorked[Date().dayNumberOfWeek()! - 1] += 70
             ViewController().save1HoursFromTmp(array: &hoursWorked)
         case 2:
             ViewController().modify2Hours(array: &hoursWorked)
-            hoursWorked[Date().dayNumberOfWeek()! - 1] += num
+            hoursWorked[Date().dayNumberOfWeek()! - 1] += 120
             ViewController().save2HoursFromTmp(array: &hoursWorked)
         case 3:
             ViewController().modify3Hours(array: &hoursWorked)
-            hoursWorked[Date().dayNumberOfWeek()! - 1] += num
+            hoursWorked[Date().dayNumberOfWeek()! - 1] += 60
             ViewController().save3HoursFromTmp(array: &hoursWorked)
         case 4:
             ViewController().modify4Hours(array: &hoursWorked)
-            hoursWorked[Date().dayNumberOfWeek()! - 1] += num
+            hoursWorked[Date().dayNumberOfWeek()! - 1] += 180
             ViewController().save4HoursFromTmp(array: &hoursWorked)
         case 5:
             ViewController().modify5Hours(array: &hoursWorked)
-            hoursWorked[Date().dayNumberOfWeek()! - 1] += num
+            hoursWorked[Date().dayNumberOfWeek()! - 1] += 60
             ViewController().save5HoursFromTmp(array: &hoursWorked)
         default:
             displayFinalTime.text = "Error"
@@ -81,7 +81,7 @@ class TimerViewController: UIViewController {
     
     @IBAction func stopStopWatch(_ sender: Any) {
         timer.invalidate()
-        let alert = UIAlertController(title: "Stop Timer?", message: "Done working already? If yes, exit session before restarting timer or progress will be lost.", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Stop Timer?", message: "If yes, exit session before restarting timer or progress will be lost.", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "CANCEL", style: .cancel, handler: { (_) in
             self.timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.timerCounter), userInfo: nil, repeats: true )
         }))

@@ -28,7 +28,6 @@
 		1715768827E2E9B10043AEB2 /* Job5Info+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1715768627E2E9B10043AEB2 /* Job5Info+CoreDataClass.swift */; };
 		1715768927E2E9B10043AEB2 /* Job5Info+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1715768727E2E9B10043AEB2 /* Job5Info+CoreDataProperties.swift */; };
 		1715768B27E2F8950043AEB2 /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1715768A27E2F8950043AEB2 /* TimerViewController.swift */; };
-		172A60FB29215B9600E5E4C9 /* InAppSettingsKit in Frameworks */ = {isa = PBXBuildFile; productRef = 172A60FA29215B9600E5E4C9 /* InAppSettingsKit */; };
 		172A610429216E5300E5E4C9 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172A610329216E5300E5E4C9 /* DetailsViewController.swift */; };
 		172A610629219E6700E5E4C9 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172A610529219E6700E5E4C9 /* SettingsViewController.swift */; };
 		172A61082921CCFE00E5E4C9 /* JobDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172A61072921CCFE00E5E4C9 /* JobDetailsViewController.swift */; };
@@ -84,7 +83,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				172A60FB29215B9600E5E4C9 /* InAppSettingsKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -236,7 +234,6 @@
 			);
 			name = Hourly;
 			packageProductDependencies = (
-				172A60FA29215B9600E5E4C9 /* InAppSettingsKit */,
 			);
 			productName = Hourly;
 			productReference = 1715762E27DFD2C20043AEB2 /* Hourly.app */;
@@ -268,7 +265,6 @@
 			);
 			mainGroup = 1715762527DFD2C20043AEB2;
 			packageReferences = (
-				172A60F929215B9600E5E4C9 /* XCRemoteSwiftPackageReference "InAppSettingsKit" */,
 			);
 			productRefGroup = 1715762F27DFD2C20043AEB2 /* Products */;
 			projectDirPath = "";
@@ -545,25 +541,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		172A60F929215B9600E5E4C9 /* XCRemoteSwiftPackageReference "InAppSettingsKit" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/futuretap/InAppSettingsKit.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 3.0.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		172A60FA29215B9600E5E4C9 /* InAppSettingsKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 172A60F929215B9600E5E4C9 /* XCRemoteSwiftPackageReference "InAppSettingsKit" */;
-			productName = InAppSettingsKit;
-		};
-/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		1715763A27DFD2C20043AEB2 /* Hourly.xcdatamodeld */ = {

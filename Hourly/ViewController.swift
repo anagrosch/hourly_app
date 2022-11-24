@@ -629,7 +629,7 @@ class ViewController: UIViewController, UIPageViewControllerDelegate, UIPageView
         modify(array: &tmpString)
         getRounding(Bool: &rounds)
         
-        if tmpBool.dropFirst().allSatisfy({ $0 == tmpBool.first }) {
+        if tmpBool.allSatisfy({ $0 == true }) {
             let alert = UIAlertController(title: "Missing Jobs", message: "Add a job option to see your total work hours.", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
             present(alert, animated: true)

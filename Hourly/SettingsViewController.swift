@@ -12,7 +12,6 @@ class SettingsViewController: UIViewController, UISearchBarDelegate {
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
-    @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var enableSwitch: UISwitch!
     @IBOutlet weak var arrow1: UIButton!
     @IBOutlet weak var arrow2: UIButton!
@@ -57,6 +56,12 @@ class SettingsViewController: UIViewController, UISearchBarDelegate {
     }()
     
     /* box borders */
+    private let headerLine: UIView = {
+        let line = UIView()
+        line.backgroundColor = .systemTeal
+        return line
+    }()
+    
     private let border1: UIView = {
         let box1 = UIView()
         box1.backgroundColor = .darkGray
@@ -170,7 +175,6 @@ class SettingsViewController: UIViewController, UISearchBarDelegate {
         navigationController?.navigationBar.titleTextAttributes = textAttributes
         
         self.title = "SETTINGS"
-        searchBar.delegate = self
         
         ViewController().modifyPay(array: &pay)
         ViewController().modify(array: &jobName)
@@ -183,6 +187,7 @@ class SettingsViewController: UIViewController, UISearchBarDelegate {
         view.addSubview(border4)
         view.addSubview(border5)
         view.addSubview(border6)
+        view.addSubview(headerLine)
         
         view.addSubview(group1Text)
         view.addSubview(group2Text)
@@ -209,31 +214,32 @@ class SettingsViewController: UIViewController, UISearchBarDelegate {
     
     override func viewDidLayoutSubviews() {
         
-        group1Text.frame = CGRect(x: 20, y: 180, width: 134, height: 20)
-        group2Text.frame = CGRect(x: 20, y: 280, width: 134, height: 20)
-        group3Text.frame = CGRect(x: 20, y: 580, width: 134, height: 20)
+        group1Text.frame = CGRect(x: 20, y: 135, width: 134, height: 20)
+        group2Text.frame = CGRect(x: 20, y: 235, width: 134, height: 20)
+        group3Text.frame = CGRect(x: 20, y: 535, width: 134, height: 20)
         
-        border1.frame = CGRect(x: 20, y: 210, width: 335, height: 40)
-        border2.frame = CGRect(x: 20, y: 310, width: 335, height: 40)
-        border3.frame = CGRect(x: 20, y: 355, width: 335, height: 40)
-        border4.frame = CGRect(x: 20, y: 400, width: 335, height: 40)
-        border5.frame = CGRect(x: 20, y: 445, width: 335, height: 40)
-        border6.frame = CGRect(x: 20, y: 490, width: 335, height: 40)
+        border1.frame = CGRect(x: 20, y: 165, width: 335, height: 40)
+        border2.frame = CGRect(x: 20, y: 265, width: 335, height: 40)
+        border3.frame = CGRect(x: 20, y: 310, width: 335, height: 40)
+        border4.frame = CGRect(x: 20, y: 355, width: 335, height: 40)
+        border5.frame = CGRect(x: 20, y: 400, width: 335, height: 40)
+        border6.frame = CGRect(x: 20, y: 445, width: 335, height: 40)
+        headerLine.frame = CGRect(x: 0, y: 100, width: 375, height: 2)
         
-        enableText.frame = CGRect(x: 30, y: 220, width: 122, height: 20)
-        job1Text.frame = CGRect(x: 30, y: 320, width: 122, height: 20)
-        job2Text.frame = CGRect(x: 30, y: 365, width: 122, height: 20)
-        job3Text.frame = CGRect(x: 30, y: 410, width: 122, height: 20)
-        job4Text.frame = CGRect(x: 30, y: 455, width: 122, height: 20)
-        job5Text.frame = CGRect(x: 30, y: 500, width: 122, height: 20)
+        enableText.frame = CGRect(x: 30, y: 175, width: 122, height: 20)
+        job1Text.frame = CGRect(x: 30, y: 275, width: 122, height: 20)
+        job2Text.frame = CGRect(x: 30, y: 320, width: 122, height: 20)
+        job3Text.frame = CGRect(x: 30, y: 365, width: 122, height: 20)
+        job4Text.frame = CGRect(x: 30, y: 410, width: 122, height: 20)
+        job5Text.frame = CGRect(x: 30, y: 455, width: 122, height: 20)
         
-        enableSwitch.frame = CGRect(x: 295, y: 215, width: 51, height: 31)
-        arrow1.frame = CGRect(x: 305, y: 315, width: 40, height: 31)
-        arrow2.frame = CGRect(x: 305, y: 360, width: 40, height: 31)
-        arrow3.frame = CGRect(x: 305, y: 405, width: 40, height: 31)
-        arrow4.frame = CGRect(x: 305, y: 450, width: 40, height: 31)
-        arrow5.frame = CGRect(x: 305, y: 495, width: 40, height: 31)
-        clearJobs.frame = CGRect(x: 20, y: 610, width: 335, height: 40)
+        enableSwitch.frame = CGRect(x: 295, y: 170, width: 51, height: 31)
+        arrow1.frame = CGRect(x: 305, y: 270, width: 40, height: 31)
+        arrow2.frame = CGRect(x: 305, y: 315, width: 40, height: 31)
+        arrow3.frame = CGRect(x: 305, y: 360, width: 40, height: 31)
+        arrow4.frame = CGRect(x: 305, y: 405, width: 40, height: 31)
+        arrow5.frame = CGRect(x: 305, y: 450, width: 40, height: 31)
+        clearJobs.frame = CGRect(x: 20, y: 565, width: 335, height: 40)
     }
 
     @IBAction func goToJob1(_ sender: Any) {
