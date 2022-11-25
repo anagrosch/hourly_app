@@ -472,7 +472,7 @@
                             </barButtonItem>
                             <barButtonItem style="plain" id="jZR-uA-Rj1">
                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qQb-fS-Zuo">
-                                    <rect key="frame" x="245" y="9.6666666666666643" width="25" height="25"/>
+                                    <rect key="frame" x="245.00000000000003" y="9.6666666666666643" width="24.999999999999972" height="25"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <state key="normal" title="Button"/>
                                     <buttonConfiguration key="configuration" style="plain" title="" titleAlignment="center">
@@ -491,6 +491,12 @@
                                         <action selector="resetHours:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Kuu-RO-xvg"/>
                                     </connections>
                                 </button>
+                            </barButtonItem>
+                            <barButtonItem image="tray.and.arrow.down" catalog="system" id="xPP-aj-YKE">
+                                <color key="tintColor" red="0.13055768879999999" green="0.4944527896" blue="0.55594354970000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <action selector="savePDF:" destination="BYZ-38-t0r" id="vj3-Ta-FlX"/>
+                                </connections>
                             </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
@@ -715,12 +721,42 @@
             </objects>
             <point key="canvasLocation" x="20" y="67.980295566502463"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="28E-vO-TBh">
+            <objects>
+                <viewController id="lAx-Di-MXX" customClass="PDFViewController" customModule="Hourly" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Y1C-l7-44D">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CRt-JI-OX8">
+                                <rect key="frame" x="154" y="294" width="67" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Button"/>
+                                <connections>
+                                    <action selector="createPdfFile:" destination="lAx-Di-MXX" eventType="touchUpInside" id="rL1-yA-88u"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="atZ-uz-abw"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bui-67-IAm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="962" y="804"/>
+        </scene>
     </scenes>
     <resources>
         <image name="arrow.counterclockwise" catalog="system" width="115" height="128"/>
         <image name="chevron.right.circle" catalog="system" width="128" height="121"/>
         <image name="gearshape" catalog="system" width="128" height="121"/>
         <image name="info.circle" catalog="system" width="128" height="121"/>
+        <image name="tray.and.arrow.down" catalog="system" width="128" height="109"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemIndigoColor">
             <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

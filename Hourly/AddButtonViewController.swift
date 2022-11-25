@@ -11,6 +11,8 @@ import UIKit
 
 class AddButtonViewController: UIViewController {
     
+    let jobFunc = JobFunctions()
+    
     var boolArray = [true, true, true, true, true]
     var positionArray = ["", "", "", "", ""]
     var wages = [0.0, 0.0, 0.0, 0.0, 0.0]
@@ -52,9 +54,9 @@ class AddButtonViewController: UIViewController {
             present(alert, animated: true)
         }
         else {
-            ViewController().modifyPay(array: &wages)
-            ViewController().modify(array: &positionArray)
-            ViewController().modifyBool(array: &boolArray)
+            jobFunc.modifyPay(array: &wages)
+            jobFunc.modify(array: &positionArray)
+            jobFunc.modifyBool(array: &boolArray)
             
             if self.positionArray[0] == "" {
                 self.positionArray[0] = jobTitleTextField.text!
@@ -77,9 +79,9 @@ class AddButtonViewController: UIViewController {
                 self.wages[4] = Double(hourlyWageTextField.text!)!
                 self.boolArray[4] = false
             }
-            ViewController().savePayFromTmp(array: &wages)
-            ViewController().saveNamesFromTmp(array: &positionArray)
-            ViewController().saveBoolFromTmp(array: &boolArray)
+            jobFunc.savePayFromTmp(array: &wages)
+            jobFunc.saveNamesFromTmp(array: &positionArray)
+            jobFunc.saveBoolFromTmp(array: &boolArray)
             
             performSegue(withIdentifier: "returnHome", sender: self)
         }

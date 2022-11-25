@@ -11,6 +11,8 @@ import UIKit
 
 class JobDetailsViewController: UIViewController {
 
+    let jobFunc = JobFunctions()
+    
     var jobNum = 0
     var job = "N/A"
     var wage = 0.0
@@ -101,15 +103,15 @@ class JobDetailsViewController: UIViewController {
     }
     
     @objc func titleChanged() {
-        ViewController().modify(array: &tmpJob)
+        jobFunc.modify(array: &tmpJob)
         tmpJob[jobNum - 1] = titleField.text ?? ""
-        ViewController().saveNamesFromTmp(array: &tmpJob)
+        jobFunc.saveNamesFromTmp(array: &tmpJob)
     }
     
     @objc func wageChanged() {
-        ViewController().modifyPay(array: &tmpWage)
+        jobFunc.modifyPay(array: &tmpWage)
         tmpWage[jobNum - 1] = Double(wageField.text!) ?? 0.0
-        ViewController().savePayFromTmp(array: &tmpWage)
+        jobFunc.savePayFromTmp(array: &tmpWage)
     }
     
     @objc func emptyWarning() {
@@ -123,11 +125,11 @@ class JobDetailsViewController: UIViewController {
         let alert = UIAlertController(title: "Clear Hours Data?", message: "Clicking YES will reset the hours of this job only.", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
         alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (_) in
-            if self.jobNum == 1 { ViewController().save1HoursFromTmp(array: &ViewController().clearAll) }
-            else if self.jobNum == 2 { ViewController().save2HoursFromTmp(array: &ViewController().clearAll) }
-            else if self.jobNum == 3 { ViewController().save3HoursFromTmp(array: &ViewController().clearAll) }
-            else if self.jobNum == 4 { ViewController().save4HoursFromTmp(array: &ViewController().clearAll) }
-            else if self.jobNum == 5 { ViewController().save5HoursFromTmp(array: &ViewController().clearAll) }
+            if self.jobNum == 1 { self.jobFunc.save1HoursFromTmp(array: &self.jobFunc.clearAll) }
+            else if self.jobNum == 2 { self.jobFunc.save2HoursFromTmp(array: &self.jobFunc.clearAll) }
+            else if self.jobNum == 3 { self.jobFunc.save3HoursFromTmp(array: &self.jobFunc.clearAll) }
+            else if self.jobNum == 4 { self.jobFunc.save4HoursFromTmp(array: &self.jobFunc.clearAll) }
+            else if self.jobNum == 5 { self.jobFunc.save5HoursFromTmp(array: &self.jobFunc.clearAll) }
             
             _ = self.navigationController?.popViewController(animated: true)
         }))

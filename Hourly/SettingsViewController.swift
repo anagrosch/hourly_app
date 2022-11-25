@@ -11,6 +11,7 @@ class SettingsViewController: UIViewController, UISearchBarDelegate {
 
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    let jobFunc = JobFunctions()
     
     @IBOutlet weak var enableSwitch: UISwitch!
     @IBOutlet weak var arrow1: UIButton!
@@ -176,9 +177,9 @@ class SettingsViewController: UIViewController, UISearchBarDelegate {
         
         self.title = "SETTINGS"
         
-        ViewController().modifyPay(array: &pay)
-        ViewController().modify(array: &jobName)
-        ViewController().getRounding(Bool: &tmpRounding)
+        jobFunc.modifyPay(array: &pay)
+        jobFunc.modify(array: &jobName)
+        jobFunc.getRounding(Bool: &tmpRounding)
         enableSwitch.setOn(tmpRounding, animated: false)
         
         view.addSubview(border1)
@@ -284,15 +285,16 @@ class SettingsViewController: UIViewController, UISearchBarDelegate {
         let alert = UIAlertController(title: "Reset Jobs?", message: "Are you sure you want to delete all jobs and hours?", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
         alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (_) in
-            ViewController().clearHours()
+            self.jobFunc.clearHours()
             self.tmpRounding = true
             self.saveRounding()
             self.enableSwitch.setOn(true, animated: true)
             
-            ViewController().saveBoolFromTmp(array: &emptyBool)
-            ViewController().saveNamesFromTmp(array: &emptyString)
-            ViewController().savePayFromTmp(array: &emptyDouble)
+            self.jobFunc.saveBoolFromTmp(array: &emptyBool)
+            self.jobFunc.saveNamesFromTmp(array: &emptyString)
+            self.jobFunc.savePayFromTmp(array: &emptyDouble)
             
+            _ = self.navigationController?.popViewController(animated: true)
         }))
         
         present(alert, animated: true)

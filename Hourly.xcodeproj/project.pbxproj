@@ -33,6 +33,7 @@
 		172A61082921CCFE00E5E4C9 /* JobDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172A61072921CCFE00E5E4C9 /* JobDetailsViewController.swift */; };
 		172A610F2921E8A400E5E4C9 /* RoundingOption+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172A610D2921E8A400E5E4C9 /* RoundingOption+CoreDataClass.swift */; };
 		172A61102921E8A400E5E4C9 /* RoundingOption+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172A610E2921E8A400E5E4C9 /* RoundingOption+CoreDataProperties.swift */; };
+		1731367A2930748600E32EBE /* JobFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173136792930748600E32EBE /* JobFunctions.swift */; };
 		176CAB2E27E3928600517C14 /* HideButtons+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176CAB2C27E3928600517C14 /* HideButtons+CoreDataClass.swift */; };
 		176CAB2F27E3928600517C14 /* HideButtons+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176CAB2D27E3928600517C14 /* HideButtons+CoreDataProperties.swift */; };
 		1776DE7227E6788F003B056D /* HelpCenterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1776DE7127E6788F003B056D /* HelpCenterTableViewController.swift */; };
@@ -70,6 +71,7 @@
 		172A61072921CCFE00E5E4C9 /* JobDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobDetailsViewController.swift; sourceTree = "<group>"; };
 		172A610D2921E8A400E5E4C9 /* RoundingOption+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RoundingOption+CoreDataClass.swift"; sourceTree = "<group>"; };
 		172A610E2921E8A400E5E4C9 /* RoundingOption+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RoundingOption+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		173136792930748600E32EBE /* JobFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobFunctions.swift; sourceTree = "<group>"; };
 		176CAB2C27E3928600517C14 /* HideButtons+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HideButtons+CoreDataClass.swift"; sourceTree = "<group>"; };
 		176CAB2D27E3928600517C14 /* HideButtons+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HideButtons+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		1776DE7127E6788F003B056D /* HelpCenterTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpCenterTableViewController.swift; sourceTree = "<group>"; };
@@ -120,6 +122,7 @@
 				1715763127DFD2C20043AEB2 /* AppDelegate.swift */,
 				1715763327DFD2C20043AEB2 /* SceneDelegate.swift */,
 				1715763527DFD2C20043AEB2 /* ViewController.swift */,
+				173136792930748600E32EBE /* JobFunctions.swift */,
 				1715764827DFD54B0043AEB2 /* AddButtonViewController.swift */,
 				1715768A27E2F8950043AEB2 /* TimerViewController.swift */,
 				1779383B27E4D642006ED568 /* TotalHoursViewController.swift */,
@@ -294,6 +297,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				176CAB2E27E3928600517C14 /* HideButtons+CoreDataClass.swift in Sources */,
+				1731367A2930748600E32EBE /* JobFunctions.swift in Sources */,
 				1779383927E4C5FF006ED568 /* JobWages+CoreDataProperties.swift in Sources */,
 				1715763627DFD2C20043AEB2 /* ViewController.swift in Sources */,
 				1715768127E2E8E80043AEB2 /* Job3Info+CoreDataProperties.swift in Sources */,

@@ -11,6 +11,8 @@ import UIKit
 
 class TimerViewController: UIViewController {
 
+    let jobFunc = JobFunctions()
+    
     var timer: Timer = Timer()
     var count:Int = 0
     var timerCounting:Bool = false
@@ -29,8 +31,8 @@ class TimerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        ViewController().modify(array: &jobName)
-        ViewController().modifyPay(array: &pay)
+        jobFunc.modify(array: &jobName)
+        jobFunc.modifyPay(array: &pay)
         
         displayFinalTime.isHidden = true
         displayInfo.layer.borderWidth = 2.5
@@ -42,25 +44,25 @@ class TimerViewController: UIViewController {
     func saveHoursToJobInfo(num: Int16) {
         switch jobNumber {
         case 1:
-            ViewController().modify1Hours(array: &hoursWorked)
-            hoursWorked[Date().dayNumberOfWeek()! - 1] += 70
-            ViewController().save1HoursFromTmp(array: &hoursWorked)
+            jobFunc.modify1Hours(array: &hoursWorked)
+            hoursWorked[Date().dayNumberOfWeek()! - 1] += num
+            jobFunc.save1HoursFromTmp(array: &hoursWorked)
         case 2:
-            ViewController().modify2Hours(array: &hoursWorked)
-            hoursWorked[Date().dayNumberOfWeek()! - 1] += 120
-            ViewController().save2HoursFromTmp(array: &hoursWorked)
+            jobFunc.modify2Hours(array: &hoursWorked)
+            hoursWorked[Date().dayNumberOfWeek()! - 1] += num
+            jobFunc.save2HoursFromTmp(array: &hoursWorked)
         case 3:
-            ViewController().modify3Hours(array: &hoursWorked)
-            hoursWorked[Date().dayNumberOfWeek()! - 1] += 60
-            ViewController().save3HoursFromTmp(array: &hoursWorked)
+            jobFunc.modify3Hours(array: &hoursWorked)
+            hoursWorked[Date().dayNumberOfWeek()! - 1] += num
+            jobFunc.save3HoursFromTmp(array: &hoursWorked)
         case 4:
-            ViewController().modify4Hours(array: &hoursWorked)
-            hoursWorked[Date().dayNumberOfWeek()! - 1] += 180
-            ViewController().save4HoursFromTmp(array: &hoursWorked)
+            jobFunc.modify4Hours(array: &hoursWorked)
+            hoursWorked[Date().dayNumberOfWeek()! - 1] += num
+            jobFunc.save4HoursFromTmp(array: &hoursWorked)
         case 5:
-            ViewController().modify5Hours(array: &hoursWorked)
-            hoursWorked[Date().dayNumberOfWeek()! - 1] += 60
-            ViewController().save5HoursFromTmp(array: &hoursWorked)
+            jobFunc.modify5Hours(array: &hoursWorked)
+            hoursWorked[Date().dayNumberOfWeek()! - 1] += num
+            jobFunc.save5HoursFromTmp(array: &hoursWorked)
         default:
             displayFinalTime.text = "Error"
         }
