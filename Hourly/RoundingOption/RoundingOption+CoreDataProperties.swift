@@ -2,7 +2,7 @@
 //  RoundingOption+CoreDataProperties.swift
 //  Hourly
 //
-//  Created by Coding on 11/13/22.
+//  Created by Anastasia Grosch on 11/13/22.
 //
 //
 

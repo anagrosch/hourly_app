@@ -18,6 +18,10 @@ class ViewController: UIViewController, UIPageViewControllerDelegate, UIPageView
     /* Core Data initializations */
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     private var jobPositionsModels = [JobPositions]()
+    let saveImage = UIImage(systemName: "tray.and.arrow.down")?.withTintColor(.customTeal!, renderingMode: .alwaysTemplate).resized(to: CGSize(width: 30, height: 30))
+    let resetImage = UIImage(systemName: "arrow.counterclockwise")?.withTintColor(.customTeal!, renderingMode: .alwaysTemplate).resized(to: CGSize(width: 30, height: 30))
+    let settingsImage = UIImage(systemName: "gearshape")?.withTintColor(.customTeal!, renderingMode: .alwaysTemplate).resized(to: CGSize(width: 30, height: 30))
+    let infoImage = UIImage(systemName: "info.circle")?.withTintColor(.customTeal!, renderingMode: .alwaysTemplate).resized(to: CGSize(width: 30, height: 30))
     
     let jf = JobFunctions()
     
@@ -27,23 +31,85 @@ class ViewController: UIViewController, UIPageViewControllerDelegate, UIPageView
     var sendJobNumber = 0
     var rounds = false
     var pdfData: String = ""
+    var screen = UIScreen.main.bounds
     
-    @IBOutlet weak var job1Button: UIButton!
-    @IBOutlet weak var job2Button: UIButton!
-    @IBOutlet weak var job3Button: UIButton!
-    @IBOutlet weak var job4Button: UIButton!
-    @IBOutlet weak var job5Button: UIButton!
+    var heading = UILabel()
+    var line1 = UIView()
+    var line2 = UIView()
+    var line3 = UIView()
+    var job1Button = UIButton()
+    var job2Button = UIButton()
+    var job3Button = UIButton()
+    var job4Button = UIButton()
+    var job5Button = UIButton()
+    var totalHoursButton = UIButton()
+    var addJobButton = UIButton()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .basic
+        
+        heading = jf.createHeading(text: "SELECT POSITION", color: .systemTeal)
+        line1 = jf.createLine()
+        line2 = jf.createLine()
+        line3 = jf.createLine()
+        job1Button = jf.createButton(textColor: .systemTeal, buttonColor: (.blueButton?.withAlphaComponent(0.6))!, corner: 5)
+        job2Button = jf.createButton(textColor: .systemTeal, buttonColor: (.blueButton?.withAlphaComponent(0.6))!, corner: 5)
+        job3Button = jf.createButton(textColor: .systemTeal, buttonColor: (.blueButton?.withAlphaComponent(0.6))!, corner: 5)
+        job4Button = jf.createButton(textColor: .systemTeal, buttonColor: (.blueButton?.withAlphaComponent(0.6))!, corner: 5)
+        job5Button = jf.createButton(textColor: .systemTeal, buttonColor: (.blueButton?.withAlphaComponent(0.6))!, corner: 5)
+        addJobButton = jf.createButton(textColor: .systemTeal, buttonColor: (.blueButton?.withAlphaComponent(0.6))!, corner: 5, text: "ADD JOB")
+        totalHoursButton = jf.createButton(textColor: .systemTeal, buttonColor: (.blueButton?.withAlphaComponent(0.6))!, corner: 5, text: "TOTAL HOURS")
+        
+        view.addSubview(heading)
+        view.addSubview(line1)
+        view.addSubview(line2)
+        view.addSubview(line3)
+        view.addSubview(job1Button)
+        view.addSubview(job2Button)
+        view.addSubview(job3Button)
+        view.addSubview(job4Button)
+        view.addSubview(job5Button)
+        view.addSubview(addJobButton)
+        view.addSubview(totalHoursButton)
+        
+        job1Button.addTarget(self, action: #selector(job1ButtonHit(_:)), for: .touchUpInside)
+        job2Button.addTarget(self, action: #selector(job2ButtonHit(_:)), for: .touchUpInside)
+        job3Button.addTarget(self, action: #selector(job3ButtonHit(_:)), for: .touchUpInside)
+        job4Button.addTarget(self, action: #selector(job4ButtonHit(_:)), for: .touchUpInside)
+        job5Button.addTarget(self, action: #selector(job5ButtonHit(_:)), for: .touchUpInside)
+        addJobButton.addTarget(self, action: #selector(addJobHit(_:)), for: .touchUpInside)
+        totalHoursButton.addTarget(self, action: #selector(viewTotalHours(_:)), for: .touchUpInside)
         
         checkButtons() // show used buttons
         setButtonTitles() // name buttons
         
     }
     
+    override func viewDidLayoutSubviews() {
+        heading.frame = CGRect(x: 30, y: 130, width: 315, height: 50)
+        line1.frame = CGRect(x: 0, y: 100, width: screen.width, height: 2)
+        line2.frame = CGRect(x: 0, y: 605, width: screen.width, height: 2)
+        line3.frame = CGRect(x: 0, y: 770, width: screen.width, height: 2)
+        
+        job1Button.frame = CGRect(x: 30, y: 220, width: 315, height: 50)
+        job2Button.frame = CGRect(x: 30, y: 290, width: 315, height: 50)
+        job3Button.frame = CGRect(x: 30, y: 360, width: 315, height: 50)
+        job4Button.frame = CGRect(x: 30, y: 430, width: 315, height: 50)
+        job5Button.frame = CGRect(x: 30, y: 500, width: 315, height: 50)
+        totalHoursButton.frame = CGRect(x: 30, y: 630, width: 315, height: 50)
+        addJobButton.frame = CGRect(x: 30, y: 700, width: 315, height: 50)
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
-        self.navigationController?.navigationBar.backgroundColor = .black
+        let infoButton = jf.createBarButton(image: infoImage, target: self, action: #selector(goToHelpCenter(_:)))
+        let settingsButton = jf.createBarButton(image: settingsImage, target: self, action: #selector(goToSettings(_:)))
+        let resetButton = jf.createBarButton(image: resetImage, target: self, action: #selector(resetHours(_:)))
+        let saveButton = jf.createBarButton(image: saveImage, target: self, action: #selector(savePDF(_:)))
+        
+        
+        self.navigationController?.navigationBar.backgroundColor = .basic
+        self.navigationItem.rightBarButtonItems = [infoButton, settingsButton, resetButton, saveButton]
         
         checkButtons() // show used buttons
         setButtonTitles() // name buttons
@@ -89,7 +155,7 @@ class ViewController: UIViewController, UIPageViewControllerDelegate, UIPageView
     }
     
     /* job button functions */
-    @IBAction func job1ButtonHit(_ sender: Any) {
+    @objc func job1ButtonHit(_ sender: UIButton!) {
         sendJobNumber = 1
         let tapPress = UITapGestureRecognizer(target: self, action: #selector(goToTimer))
         let longPress = UILongPressGestureRecognizer(target: self, action: #selector(deleteButton1))
@@ -97,28 +163,31 @@ class ViewController: UIViewController, UIPageViewControllerDelegate, UIPageView
         job1Button.addGestureRecognizer(longPress)
     }
     
-    @IBAction func job2ButtonHit(_ sender: Any) {
+    @objc func job2ButtonHit(_ sender: Any) {
         sendJobNumber = 2
         let tapPress = UITapGestureRecognizer(target: self, action: #selector(goToTimer))
         let longPress = UILongPressGestureRecognizer(target: self, action: #selector(deleteButton2))
         job2Button.addGestureRecognizer(tapPress)
         job2Button.addGestureRecognizer(longPress)
     }
-    @IBAction func job3ButtonHit(_ sender: Any) {
+    
+    @objc func job3ButtonHit(_ sender: Any) {
         sendJobNumber = 3
         let tapPress = UITapGestureRecognizer(target: self, action: #selector(goToTimer))
         let longPress = UILongPressGestureRecognizer(target: self, action: #selector(deleteButton3))
         job3Button.addGestureRecognizer(tapPress)
         job3Button.addGestureRecognizer(longPress)
     }
-    @IBAction func job4ButtonHit(_ sender: Any) {
+    
+    @objc func job4ButtonHit(_ sender: Any) {
         sendJobNumber = 4
         let tapPress = UITapGestureRecognizer(target: self, action: #selector(goToTimer))
         let longPress = UILongPressGestureRecognizer(target: self, action: #selector(deleteButton4))
         job4Button.addGestureRecognizer(tapPress)
         job4Button.addGestureRecognizer(longPress)
     }
-    @IBAction func job5ButtonHit(_ sender: Any) {
+    
+    @objc func job5ButtonHit(_ sender: Any) {
         sendJobNumber = 5
         let tapPress = UITapGestureRecognizer(target: self, action: #selector(goToTimer))
         let longPress = UILongPressGestureRecognizer(target: self, action: #selector(deleteButton5))
@@ -246,7 +315,7 @@ class ViewController: UIViewController, UIPageViewControllerDelegate, UIPageView
         setButtonTitles()
     }
     
-    @IBAction func addJobButton(_ sender: Any) {
+    @objc func addJobHit(_ sender: UIButton!) {
         if job5Button.isHidden == false {
             let alert = UIAlertController(title: "Job Limit Reached", message: "Delete a job option before adding a new job.", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
@@ -256,6 +325,85 @@ class ViewController: UIViewController, UIPageViewControllerDelegate, UIPageView
             performSegue(withIdentifier: "goToAddJob", sender: self)
         }
     }
+    
+    /* Navigation Bar Functions */
+    @objc func goToHelpCenter(_ sender: UIBarButtonItem!) {
+        performSegue(withIdentifier: "goToHelpCenter", sender: self)
+    }
+    
+    @objc func goToSettings(_ sender: UIBarButtonItem!) {
+        performSegue(withIdentifier: "goToSettings", sender: self)
+    }
+    
+    @objc func resetHours(_ sender: UIBarButtonItem!) { // reset hours on command
+        let alert = UIAlertController(title: "Reset Hours?", message: "Are you sure you want to reset your hours?", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
+        alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (_) in
+            self.jf.clearHours()
+        }))
+        
+        present(alert, animated: true)
+    }
+    
+    /* Save to PDF Navigation Button functions */
+    @objc func savePDF(_ sender: UIBarButtonItem!) {
+        convertToPdfFileAndShare()
+    }
+
+    func convertToPdfFileAndShare(){
+        jf.getRounding(Bool: &rounds)
+        if rounds { pdfData = jf.createRoundedPDFString() }
+        else { pdfData = jf.createUnroundedPDFString() }
+        
+        let htmlText = UIMarkupTextPrintFormatter(markupText: pdfData)
+        
+        // Assign print formatter to UIPrintPageRenderer
+        let render = UIPrintPageRenderer()
+        render.addPrintFormatter(htmlText, startingAtPageAt: 0)
+        
+        // Assign paperRect and printableRect
+        let page = CGRect(x: 0, y: 0, width: 595.2, height: 841.8) // A4, 72 dpi
+        render.setValue(page, forKey: "paperRect")
+        render.setValue(page, forKey: "printableRect")
+        
+        // Create PDF context and draw
+        let pdfData = NSMutableData()
+        UIGraphicsBeginPDFContextToData(pdfData, .zero, nil)
+        
+        for i in 0..<render.numberOfPages {
+            UIGraphicsBeginPDFPage();
+            render.drawPage(at: i, in: UIGraphicsGetPDFContextBounds())
+        }
+        
+        UIGraphicsEndPDFContext();
+        
+        // Save PDF file
+        guard let outputURL = try? FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false).appendingPathComponent("Week Report").appendingPathExtension("pdf")
+            else { fatalError("Destination URL not created") }
+        
+        pdfData.write(to: outputURL, atomically: true)
+        print("open \(outputURL.path)")
+        
+        if FileManager.default.fileExists(atPath: outputURL.path){
+            
+            let url = URL(fileURLWithPath: outputURL.path)
+            let activityViewController: UIActivityViewController = UIActivityViewController(activityItems: [url], applicationActivities: nil)
+            activityViewController.popoverPresentationController?.sourceView=self.view
+            
+            //If user on iPad
+            if UIDevice.current.userInterfaceIdiom == .pad {
+                if activityViewController.responds(to: #selector(getter: UIViewController.popoverPresentationController)) {
+                }
+            }
+            present(activityViewController, animated: true, completion: nil)
+
+        }
+        else {
+            print("document was not found")
+        }
+        
+    }
+    /* end PDF functions */
     
     /* TimerViewController Related Functions */
     func presentPage() {
@@ -285,17 +433,7 @@ class ViewController: UIViewController, UIPageViewControllerDelegate, UIPageView
         return myControllers[after]
     }
     
-    @IBAction func resetHours(_ sender: Any) { // reset hours on command
-        let alert = UIAlertController(title: "Reset Hours?", message: "Are you sure you want to reset your hours?", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
-        alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (_) in
-            self.jf.clearHours()
-        }))
-        
-        present(alert, animated: true)
-    }
-    
-    @IBAction func viewTotalHours(_ sender: Any) {
+    @objc func viewTotalHours(_ sender: UIButton!) {
         jf.modify1Hours(array: &jf.tmp1Hours)
         jf.modify2Hours(array: &jf.tmp2Hours)
         jf.modify3Hours(array: &jf.tmp3Hours)
@@ -347,66 +485,6 @@ class ViewController: UIViewController, UIPageViewControllerDelegate, UIPageView
     }
     /* end total pages */
     
-    /* Save to PDF Navigation Button functions */
-    @IBAction func savePDF(_ sender: Any) {
-        convertToPdfFileAndShare()
-    }
-
-    func convertToPdfFileAndShare(){
-        jf.getRounding(Bool: &rounds)
-        if rounds { pdfData = jf.createRoundedPDFString() }
-        else { pdfData = jf.createUnroundedPDFString() }
-        
-        let fmt = UIMarkupTextPrintFormatter(markupText: pdfData)
-        
-        // 2. Assign print formatter to UIPrintPageRenderer
-        let render = UIPrintPageRenderer()
-        render.addPrintFormatter(fmt, startingAtPageAt: 0)
-        
-        // 3. Assign paperRect and printableRect
-        let page = CGRect(x: 0, y: 0, width: 595.2, height: 841.8) // A4, 72 dpi
-        render.setValue(page, forKey: "paperRect")
-        render.setValue(page, forKey: "printableRect")
-        
-        // 4. Create PDF context and draw
-        let pdfData = NSMutableData()
-        UIGraphicsBeginPDFContextToData(pdfData, .zero, nil)
-        
-        for i in 0..<render.numberOfPages {
-            UIGraphicsBeginPDFPage();
-            render.drawPage(at: i, in: UIGraphicsGetPDFContextBounds())
-        }
-        
-        UIGraphicsEndPDFContext();
-        
-        // 5. Save PDF file
-        guard let outputURL = try? FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false).appendingPathComponent("Week Report").appendingPathExtension("pdf")
-            else { fatalError("Destination URL not created") }
-        
-        pdfData.write(to: outputURL, atomically: true)
-        print("open \(outputURL.path)")
-        
-        if FileManager.default.fileExists(atPath: outputURL.path){
-            
-            let url = URL(fileURLWithPath: outputURL.path)
-            let activityViewController: UIActivityViewController = UIActivityViewController(activityItems: [url], applicationActivities: nil)
-            activityViewController.popoverPresentationController?.sourceView=self.view
-            
-            //If user on iPad
-            if UIDevice.current.userInterfaceIdiom == .pad {
-                if activityViewController.responds(to: #selector(getter: UIViewController.popoverPresentationController)) {
-                }
-            }
-            present(activityViewController, animated: true, completion: nil)
-
-        }
-        else {
-            print("document was not found")
-        }
-        
-    }
-    /* end PDF functions */
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let timerVC = segue.destination as? TimerViewController {
             timerVC.jobNumber = self.sendJobNumber
@@ -414,3 +492,14 @@ class ViewController: UIViewController, UIPageViewControllerDelegate, UIPageView
     }
 }
 
+extension UIColor {
+    static let basic = UIColor(named: "basicBackground")
+    static let nonBasic = UIColor(named: "basicInverted")
+    static let customTeal = UIColor(named: "primaryTeal")
+    static let customPurple = UIColor(named: "primaryPurple")
+    static let customPurple2 = UIColor(named: "backgroundPurple")
+    static let blueButton = UIColor(named: "buttonBlue")
+    static let tealButton = UIColor(named: "buttonTeal")
+    static let border = UIColor(named: "borderGray")
+    static let arrow = UIColor(named: "arrowGray")
+}

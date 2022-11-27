@@ -33,6 +33,7 @@ class HelpCenterTableViewController: UITableViewController, UISearchBarDelegate 
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .basic
         let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.systemTeal]
         navigationController?.navigationBar.titleTextAttributes = textAttributes
 
@@ -48,7 +49,6 @@ class HelpCenterTableViewController: UITableViewController, UISearchBarDelegate 
             }
         }
         self.tableView.reloadData()
-        
     }
     
     override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
@@ -70,7 +70,7 @@ class HelpCenterTableViewController: UITableViewController, UISearchBarDelegate 
         
         cell.textLabel?.text = data.name
         
-        cell.textLabel?.textColor = .white
+        cell.textLabel?.textColor = .nonBasic
         cell.textLabel?.font = .systemFont(ofSize: 14)
         cell.accessoryType = .disclosureIndicator
         

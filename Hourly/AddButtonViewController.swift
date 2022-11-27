@@ -11,22 +11,43 @@ import UIKit
 
 class AddButtonViewController: UIViewController {
     
-    let jobFunc = JobFunctions()
+    let jf = JobFunctions()
+    
+    var heading = UILabel()
+    var jobTitleTextField = UITextField()
+    var hourlyWageTextField = UITextField()
+    var addJobButton = UIButton()
     
     var boolArray = [true, true, true, true, true]
     var positionArray = ["", "", "", "", ""]
     var wages = [0.0, 0.0, 0.0, 0.0, 0.0]
     
-    @IBOutlet weak var jobTitleTextField: UITextField!
-    @IBOutlet weak var hourlyWageTextField: UITextField!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .customPurple2
+        
+        heading = jf.createHeading(text: "ADD NEW JOB", color: .white)
+        jobTitleTextField = jf.createTextField(color: .customPurple!, corner: 5, textColor: .white, align: .center, tmpText: "Enter job title")
+        hourlyWageTextField = jf.createTextField(color: .customPurple!, corner: 5, textColor: .white, align: .center, tmpText: "Enter hourly wage")
+        addJobButton = jf.createButton(textColor: .white, buttonColor: .customPurple!, corner: 5, text: "ADD JOB")
+        
+        view.addSubview(heading)
+        view.addSubview(jobTitleTextField)
+        view.addSubview(hourlyWageTextField)
+        view.addSubview(addJobButton)
         
         hourlyWageTextField.keyboardType = .numberPad
         addDoneButtonOnNumpad(textField: jobTitleTextField)
         addDoneButtonOnNumpad(textField: hourlyWageTextField)
 
+        addJobButton.addTarget(self, action: #selector(addJobPressed(_:)), for: .touchUpInside)
+    }
+    
+    override func viewDidLayoutSubviews() {
+        heading.frame = CGRect(x: 30, y: 80, width: 315, height: 40)
+        jobTitleTextField.frame = CGRect(x: 30, y: 210, width: 315, height: 34)
+        hourlyWageTextField.frame = CGRect(x: 30, y: 285, width: 315, height: 34)
+        addJobButton.frame = CGRect(x: 30, y: 425, width: 315, height: 50)
     }
 
     func addDoneButtonOnNumpad(textField: UITextField) {
@@ -42,7 +63,7 @@ class AddButtonViewController: UIViewController {
             textField.inputAccessoryView = keypadToolbar
     }
     
-    @IBAction func addJobPressed(_ sender: Any) {
+    @objc func addJobPressed(_ sender: UIButton!) {
         
         if jobTitleTextField.text == "" || hourlyWageTextField.text == "" {
             let alert = UIAlertController(title: "Missing Information", message: "Please enter both job title and hourly wage. Or click cancel to exit.", preferredStyle: .alert)
@@ -54,9 +75,9 @@ class AddButtonViewController: UIViewController {
             present(alert, animated: true)
         }
         else {
-            jobFunc.modifyPay(array: &wages)
-            jobFunc.modify(array: &positionArray)
-            jobFunc.modifyBool(array: &boolArray)
+            jf.modifyPay(array: &wages)
+            jf.modify(array: &positionArray)
+            jf.modifyBool(array: &boolArray)
             
             if self.positionArray[0] == "" {
                 self.positionArray[0] = jobTitleTextField.text!
@@ -79,9 +100,9 @@ class AddButtonViewController: UIViewController {
                 self.wages[4] = Double(hourlyWageTextField.text!)!
                 self.boolArray[4] = false
             }
-            jobFunc.savePayFromTmp(array: &wages)
-            jobFunc.saveNamesFromTmp(array: &positionArray)
-            jobFunc.saveBoolFromTmp(array: &boolArray)
+            jf.savePayFromTmp(array: &wages)
+            jf.saveNamesFromTmp(array: &positionArray)
+            jf.saveBoolFromTmp(array: &boolArray)
             
             performSegue(withIdentifier: "returnHome", sender: self)
         }

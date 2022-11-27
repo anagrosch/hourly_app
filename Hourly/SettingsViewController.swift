@@ -11,15 +11,36 @@ class SettingsViewController: UIViewController, UISearchBarDelegate {
 
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-    let jobFunc = JobFunctions()
+    let jf = JobFunctions()
     
-    @IBOutlet weak var enableSwitch: UISwitch!
-    @IBOutlet weak var arrow1: UIButton!
-    @IBOutlet weak var arrow2: UIButton!
-    @IBOutlet weak var arrow3: UIButton!
-    @IBOutlet weak var arrow4: UIButton!
-    @IBOutlet weak var arrow5: UIButton!
+    var headerLine = UIView()
+    var border1 = UIView()
+    var border2 = UIView()
+    var border3 = UIView()
+    var border4 = UIView()
+    var border5 = UIView()
+    var border6 = UIView()
+    var border7 = UIView()
     
+    var enableText = UILabel()
+    var group1Text = UILabel()
+    var group2Text = UILabel()
+    var group3Text = UILabel()
+    var job1Text = UILabel()
+    var job2Text = UILabel()
+    var job3Text = UILabel()
+    var job4Text = UILabel()
+    var job5Text = UILabel()
+    
+   
+    let arrow1 = UIButton()
+    let arrow2 = UIButton()
+    let arrow3 = UIButton()
+    let arrow4 = UIButton()
+    let arrow5 = UIButton()
+    var clearJobs = UIButton()
+    let enableSwitch = UISwitch(frame: CGRect(x: 30, y: 175, width: 122, height: 20))
+    let arrowImage = UIImage(systemName: "chevron.right.circle")?.withTintColor(.arrow!, renderingMode: .alwaysTemplate).resized(to: CGSize(width: 25, height: 25))
     
     var pay = [0.0, 0.0, 0.0, 0.0, 0.0]
     var jobName = ["", "", "", "", ""]
@@ -28,158 +49,44 @@ class SettingsViewController: UIViewController, UISearchBarDelegate {
     var tmpNum = 0
     var tmpRounding = false
     
-    /* groups */
-    private let group1Text: UILabel = {
-        let group1 = UILabel()
-        group1.font = .systemFont(ofSize: 16)
-        group1.textColor = .lightGray
-        group1.textAlignment = .left
-        group1.text = "HOUR ROUNDING"
-        return group1
-    }()
-    
-    private let group2Text: UILabel = {
-        let group2 = UILabel()
-        group2.font = .systemFont(ofSize: 16)
-        group2.textColor = .lightGray
-        group2.textAlignment = .left
-        group2.text = "ALL JOB INFO"
-        return group2
-    }()
-    
-    private let group3Text: UILabel = {
-        let group3 = UILabel()
-        group3.font = .systemFont(ofSize: 16)
-        group3.textColor = .lightGray
-        group3.textAlignment = .left
-        group3.text = "RESET"
-        return group3
-    }()
-    
-    /* box borders */
-    private let headerLine: UIView = {
-        let line = UIView()
-        line.backgroundColor = .systemTeal
-        return line
-    }()
-    
-    private let border1: UIView = {
-        let box1 = UIView()
-        box1.backgroundColor = .darkGray
-        box1.layer.cornerRadius = 10
-        return box1
-    }()
-    
-    private let border2: UIView = {
-        let box2 = UIView()
-        box2.backgroundColor = .darkGray
-        box2.layer.cornerRadius = 10
-        return box2
-    }()
-    
-    private let border3: UIView = {
-        let box3 = UIView()
-        box3.backgroundColor = .darkGray
-        box3.layer.cornerRadius = 10
-        return box3
-    }()
-    
-    private let border4: UIView = {
-        let box4 = UIView()
-        box4.backgroundColor = .darkGray
-        box4.layer.cornerRadius = 10
-        return box4
-    }()
-    
-    private let border5: UIView = {
-        let box5 = UIView()
-        box5.backgroundColor = .darkGray
-        box5.layer.cornerRadius = 10
-        return box5
-    }()
-    
-    private let border6: UIView = {
-        let box6 = UIView()
-        box6.backgroundColor = .darkGray
-        box6.layer.cornerRadius = 10
-        return box6
-    }()
-    
-    /* text options */
-    private let enableText: UILabel = {
-        let text1 = UILabel()
-        text1.font = .systemFont(ofSize: 16)
-        text1.textColor = .white
-        text1.textAlignment = .left
-        text1.text = "Enable Rounding"
-        return text1
-    }()
-    
-    private let job1Text: UILabel = {
-        let job1 = UILabel()
-        job1.font = .systemFont(ofSize: 16)
-        job1.textColor = .white
-        job1.textAlignment = .left
-        job1.text = "Job 1"
-        return job1
-    }()
-    
-    private let job2Text: UILabel = {
-        let job2 = UILabel()
-        job2.font = .systemFont(ofSize: 16)
-        job2.textColor = .white
-        job2.textAlignment = .left
-        job2.text = "Job 2"
-        return job2
-    }()
-    
-    private let job3Text: UILabel = {
-        let job3 = UILabel()
-        job3.font = .systemFont(ofSize: 16)
-        job3.textColor = .white
-        job3.textAlignment = .left
-        job3.text = "Job 3"
-        return job3
-    }()
-    
-    private let job4Text: UILabel = {
-        let job4 = UILabel()
-        job4.font = .systemFont(ofSize: 16)
-        job4.textColor = .white
-        job4.textAlignment = .left
-        job4.text = "Job 4"
-        return job4
-    }()
-    
-    private let job5Text: UILabel = {
-        let job5 = UILabel()
-        job5.font = .systemFont(ofSize: 16)
-        job5.textColor = .white
-        job5.textAlignment = .left
-        job5.text = "Job 5"
-        return job5
-    }()
-    
-    private let clearJobs: UIButton = {
-        let clear = UIButton()
-        clear.titleLabel?.font = UIFont(name: "System", size: 16)
-        clear.setTitleColor(.systemRed, for: .normal)
-        clear.backgroundColor = .darkGray
-        clear.layer.cornerRadius = 10
-        clear.setTitle("DELETE ALL JOBS", for: .normal)
-        return clear
-    }()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.systemTeal]
         navigationController?.navigationBar.titleTextAttributes = textAttributes
         
+        view.backgroundColor = .basic
         self.title = "SETTINGS"
         
-        jobFunc.modifyPay(array: &pay)
-        jobFunc.modify(array: &jobName)
-        jobFunc.getRounding(Bool: &tmpRounding)
+        headerLine = jf.createLine()
+        border1 = jf.createBorder()
+        border2 = jf.createBorder()
+        border3 = jf.createBorder()
+        border4 = jf.createBorder()
+        border5 = jf.createBorder()
+        border6 = jf.createBorder()
+        border7 = jf.createBorder()
+        
+        enableText = jf.createLabel(text: "Enable Rounding", color: .nonBasic!)
+        group1Text = jf.createLabel(text: "HOUR ROUNDING", color: .arrow!)
+        group2Text = jf.createLabel(text: "ALL JOB INFO", color: .arrow!)
+        group3Text = jf.createLabel(text: "RESET", color: .arrow!)
+        job1Text = jf.createLabel(text: "Job 1", color: .nonBasic!)
+        job2Text = jf.createLabel(text: "Job 2", color: .nonBasic!)
+        job3Text = jf.createLabel(text: "Job 3", color: .nonBasic!)
+        job4Text = jf.createLabel(text: "Job 4", color: .nonBasic!)
+        job5Text = jf.createLabel(text: "Job 5", color: .nonBasic!)
+        
+        arrow1.setImage(arrowImage, for: .normal)
+        arrow2.setImage(arrowImage, for: .normal)
+        arrow3.setImage(arrowImage, for: .normal)
+        arrow4.setImage(arrowImage, for: .normal)
+        arrow5.setImage(arrowImage, for: .normal)
+        
+        clearJobs = jf.createButton(textColor: .systemRed, buttonColor: .border!, corner: 10, text: "DELETE ALL JOBS")
+        
+        jf.modifyPay(array: &pay)
+        jf.modify(array: &jobName)
+        jf.getRounding(Bool: &tmpRounding)
         enableSwitch.setOn(tmpRounding, animated: false)
         
         view.addSubview(border1)
@@ -188,6 +95,7 @@ class SettingsViewController: UIViewController, UISearchBarDelegate {
         view.addSubview(border4)
         view.addSubview(border5)
         view.addSubview(border6)
+        view.addSubview(border7)
         view.addSubview(headerLine)
         
         view.addSubview(group1Text)
@@ -210,6 +118,11 @@ class SettingsViewController: UIViewController, UISearchBarDelegate {
         view.addSubview(clearJobs)
         
         enableSwitch.addTarget(self, action: #selector(switchRound(_sender:)), for: .touchUpInside)
+        arrow1.addTarget(self, action: #selector(goToJob1(_:)), for: .touchUpInside)
+        arrow2.addTarget(self, action: #selector(goToJob2(_:)), for: .touchUpInside)
+        arrow3.addTarget(self, action: #selector(goToJob3(_:)), for: .touchUpInside)
+        arrow4.addTarget(self, action: #selector(goToJob4(_:)), for: .touchUpInside)
+        arrow5.addTarget(self, action: #selector(goToJob5(_:)), for: .touchUpInside)
         clearJobs.addTarget(self, action: #selector(clearButton(_sender:)), for: .touchUpInside)
     }
     
@@ -221,10 +134,11 @@ class SettingsViewController: UIViewController, UISearchBarDelegate {
         
         border1.frame = CGRect(x: 20, y: 165, width: 335, height: 40)
         border2.frame = CGRect(x: 20, y: 265, width: 335, height: 40)
-        border3.frame = CGRect(x: 20, y: 310, width: 335, height: 40)
-        border4.frame = CGRect(x: 20, y: 355, width: 335, height: 40)
-        border5.frame = CGRect(x: 20, y: 400, width: 335, height: 40)
-        border6.frame = CGRect(x: 20, y: 445, width: 335, height: 40)
+        border3.frame = CGRect(x: 20, y: 265, width: 335, height: 40)
+        border4.frame = CGRect(x: 20, y: 310, width: 335, height: 40)
+        border5.frame = CGRect(x: 20, y: 355, width: 335, height: 40)
+        border6.frame = CGRect(x: 20, y: 400, width: 335, height: 40)
+        border7.frame = CGRect(x: 20, y: 445, width: 335, height: 40)
         headerLine.frame = CGRect(x: 0, y: 100, width: 375, height: 2)
         
         enableText.frame = CGRect(x: 30, y: 175, width: 122, height: 20)
@@ -235,43 +149,43 @@ class SettingsViewController: UIViewController, UISearchBarDelegate {
         job5Text.frame = CGRect(x: 30, y: 455, width: 122, height: 20)
         
         enableSwitch.frame = CGRect(x: 295, y: 170, width: 51, height: 31)
-        arrow1.frame = CGRect(x: 305, y: 270, width: 40, height: 31)
-        arrow2.frame = CGRect(x: 305, y: 315, width: 40, height: 31)
-        arrow3.frame = CGRect(x: 305, y: 360, width: 40, height: 31)
-        arrow4.frame = CGRect(x: 305, y: 405, width: 40, height: 31)
-        arrow5.frame = CGRect(x: 305, y: 450, width: 40, height: 31)
+        arrow1.frame = CGRect(x: 305, y: 265, width: 40, height: 40)
+        arrow2.frame = CGRect(x: 305, y: 310, width: 40, height: 40)
+        arrow3.frame = CGRect(x: 305, y: 355, width: 40, height: 40)
+        arrow4.frame = CGRect(x: 305, y: 400, width: 40, height: 40)
+        arrow5.frame = CGRect(x: 305, y: 445, width: 40, height: 40)
         clearJobs.frame = CGRect(x: 20, y: 565, width: 335, height: 40)
     }
 
-    @IBAction func goToJob1(_ sender: Any) {
+    @objc func goToJob1(_ sender: UIButton!) {
         tmpName = jobName[0]
         tmpWage = pay[0]
         tmpNum = 1
         performSegue(withIdentifier: "jobDetails", sender: self)
     }
     
-    @IBAction func goToJob2(_ sender: Any) {
+    @objc func goToJob2(_ sender: UIButton!) {
         tmpName = jobName[1]
         tmpWage = pay[1]
         tmpNum = 2
         performSegue(withIdentifier: "jobDetails", sender: self)
     }
     
-    @IBAction func goToJob3(_ sender: Any) {
+    @objc func goToJob3(_ sender: UIButton!) {
         tmpName = jobName[2]
         tmpWage = pay[2]
         tmpNum = 3
         performSegue(withIdentifier: "jobDetails", sender: self)
     }
     
-    @IBAction func goToJob4(_ sender: Any) {
+    @objc func goToJob4(_ sender: UIButton!) {
         tmpName = jobName[3]
         tmpWage = pay[3]
         tmpNum = 4
         performSegue(withIdentifier: "jobDetails", sender: self)
     }
     
-    @IBAction func goToJob5(_ sender: Any) {
+    @objc func goToJob5(_ sender: UIButton!) {
         tmpName = jobName[4]
         tmpWage = pay[4]
         tmpNum = 5
@@ -285,14 +199,14 @@ class SettingsViewController: UIViewController, UISearchBarDelegate {
         let alert = UIAlertController(title: "Reset Jobs?", message: "Are you sure you want to delete all jobs and hours?", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
         alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (_) in
-            self.jobFunc.clearHours()
+            self.jf.clearHours()
             self.tmpRounding = true
             self.saveRounding()
             self.enableSwitch.setOn(true, animated: true)
             
-            self.jobFunc.saveBoolFromTmp(array: &emptyBool)
-            self.jobFunc.saveNamesFromTmp(array: &emptyString)
-            self.jobFunc.savePayFromTmp(array: &emptyDouble)
+            self.jf.saveBoolFromTmp(array: &emptyBool)
+            self.jf.saveNamesFromTmp(array: &emptyString)
+            self.jf.savePayFromTmp(array: &emptyDouble)
             
             _ = self.navigationController?.popViewController(animated: true)
         }))
@@ -323,6 +237,14 @@ class SettingsViewController: UIViewController, UISearchBarDelegate {
             vc.job = self.tmpName
             vc.wage = self.tmpWage
             vc.jobNum = self.tmpNum
+        }
+    }
+}
+
+extension UIImage {
+    func resized(to size: CGSize) -> UIImage {
+        return UIGraphicsImageRenderer(size: size).image { _ in
+            draw(in: CGRect(origin: .zero, size: size))
         }
     }
 }

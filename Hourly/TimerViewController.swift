@@ -11,7 +11,7 @@ import UIKit
 
 class TimerViewController: UIViewController {
 
-    let jobFunc = JobFunctions()
+    let jf = JobFunctions()
     
     var timer: Timer = Timer()
     var count:Int = 0
@@ -23,52 +23,83 @@ class TimerViewController: UIViewController {
     var hoursWorked: [Int16] = [0, 0, 0, 0, 0, 0, 0]
     var final = Int16()
     
-    @IBOutlet weak var displayStopwatch: UILabel!
-    @IBOutlet weak var displayInfo: UILabel!
-    @IBOutlet weak var displayFinalTime: UILabel!
-    @IBOutlet weak var startButton: UIButton!
+    var heading = UILabel()
+    var displayInfo = UILabel()
+    let displayFinalTime = UILabel()
+    var displayStopwatch = UILabel()
+    var startButton = UIButton()
+    var endButton = UIButton()
+    var sessionButton = UIButton()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .customTeal
 
-        jobFunc.modify(array: &jobName)
-        jobFunc.modifyPay(array: &pay)
+        jf.modify(array: &jobName)
+        jf.modifyPay(array: &pay)
         
-        displayFinalTime.isHidden = true
+        heading = jf.createHeading(text: "GOOD LUCK!", color: .white)
+        displayInfo = jf.createLabel(text: "\tJob: " + jobName[jobNumber - 1] + "\n\n\tWage: $" + String(format: "%.2f", pay[jobNumber - 1]) + "/hr" + "\n\n", color: .white)
         displayInfo.layer.borderWidth = 2.5
-        displayInfo.layer.borderColor = UIColor.systemTeal.cgColor
-        displayInfo.text = "\tJob: " + jobName[jobNumber - 1] + "\n\n\tWage: $" + String(format: "%.2f", pay[jobNumber - 1]) + "/hr" + "\n\n"
+        displayInfo.layer.borderColor = UIColor.tealButton?.cgColor
+        displayFinalTime.textColor = .white
+        displayFinalTime.isHidden = true
+        displayStopwatch = jf.createLabel(fontSize: 60, text: "00:00:00", color: .white, align: .center)
+        startButton = jf.createButton(fontSize: 50, textColor: .white, buttonColor: .tealButton!, corner: 5, text: "START")
+        endButton = jf.createButton(fontSize: 50, textColor: .white, buttonColor: .tealButton!, corner: 5, text: "END")
+        sessionButton = jf.createButton(fontSize: 40, textColor: .white, buttonColor: .tealButton!, corner: 5, text: "END SESSION")
         
+        view.addSubview(heading)
+        view.addSubview(displayInfo)
+        view.addSubview(displayFinalTime)
+        view.addSubview(displayStopwatch)
+        view.addSubview(startButton)
+        view.addSubview(endButton)
+        view.addSubview(sessionButton)
+
+        startButton.addTarget(self, action: #selector(startStopWatch(_:)), for: .touchUpInside)
+        endButton.addTarget(self, action: #selector(stopStopWatch(_:)), for: .touchUpInside)
+        sessionButton.addTarget(self, action: #selector(exitScreen(_:)), for: .touchUpInside)
+    }
+    
+    override func viewDidLayoutSubviews() {
+        heading.frame = CGRect(x: 30, y: 75, width: 315, height: 50)
+        displayInfo.frame = CGRect(x: 35, y: 155, width: 305, height: 140)
+        displayFinalTime.frame = CGRect(x: 62, y: 250, width: 300, height: 33)
+        displayStopwatch.frame = CGRect(x: 35, y: 444, width: 305, height: 122)
+        startButton.frame = CGRect(x: 23, y: 364, width: 156, height: 40)
+        endButton.frame = CGRect(x: 196, y: 364, width: 156, height: 40)
+        sessionButton.frame = CGRect(x: 23, y: 616, width: 329, height: 40)
     }
     
     func saveHoursToJobInfo(num: Int16) {
         switch jobNumber {
         case 1:
-            jobFunc.modify1Hours(array: &hoursWorked)
+            jf.modify1Hours(array: &hoursWorked)
             hoursWorked[Date().dayNumberOfWeek()! - 1] += num
-            jobFunc.save1HoursFromTmp(array: &hoursWorked)
+            jf.save1HoursFromTmp(array: &hoursWorked)
         case 2:
-            jobFunc.modify2Hours(array: &hoursWorked)
+            jf.modify2Hours(array: &hoursWorked)
             hoursWorked[Date().dayNumberOfWeek()! - 1] += num
-            jobFunc.save2HoursFromTmp(array: &hoursWorked)
+            jf.save2HoursFromTmp(array: &hoursWorked)
         case 3:
-            jobFunc.modify3Hours(array: &hoursWorked)
+            jf.modify3Hours(array: &hoursWorked)
             hoursWorked[Date().dayNumberOfWeek()! - 1] += num
-            jobFunc.save3HoursFromTmp(array: &hoursWorked)
+            jf.save3HoursFromTmp(array: &hoursWorked)
         case 4:
-            jobFunc.modify4Hours(array: &hoursWorked)
+            jf.modify4Hours(array: &hoursWorked)
             hoursWorked[Date().dayNumberOfWeek()! - 1] += num
-            jobFunc.save4HoursFromTmp(array: &hoursWorked)
+            jf.save4HoursFromTmp(array: &hoursWorked)
         case 5:
-            jobFunc.modify5Hours(array: &hoursWorked)
+            jf.modify5Hours(array: &hoursWorked)
             hoursWorked[Date().dayNumberOfWeek()! - 1] += num
-            jobFunc.save5HoursFromTmp(array: &hoursWorked)
+            jf.save5HoursFromTmp(array: &hoursWorked)
         default:
             displayFinalTime.text = "Error"
         }
     }
     
-    @IBAction func startStopWatch(_ sender: Any) {
+    @objc func startStopWatch(_ sender: Any) {
         if (timerCounting) {
             timerCounting = false
             timer.invalidate()
@@ -81,7 +112,7 @@ class TimerViewController: UIViewController {
         }
     }
     
-    @IBAction func stopStopWatch(_ sender: Any) {
+    @objc func stopStopWatch(_ sender: Any) {
         timer.invalidate()
         let alert = UIAlertController(title: "Stop Timer?", message: "If yes, exit session before restarting timer or progress will be lost.", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "CANCEL", style: .cancel, handler: { (_) in
@@ -129,7 +160,7 @@ class TimerViewController: UIViewController {
     }
     
     /* button to go back to home screen */
-    @IBAction func exitScreen(_ sender: Any) {
+    @objc func exitScreen(_ sender: Any) {
         dismiss(animated: true, completion:  nil)
     }
     

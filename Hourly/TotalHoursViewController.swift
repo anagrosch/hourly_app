@@ -25,7 +25,7 @@ class TotalHoursViewController: UIViewController {
     private let myTextView1: UITextView = { // header text view
         let textView1 = UITextView()
         textView1.font = .systemFont(ofSize: 26)
-        textView1.textColor = .white
+        textView1.textColor = .nonBasic
         textView1.textAlignment = .center
         textView1.text = "\n\nWeek Total"
         textView1.isEditable = false
@@ -35,7 +35,7 @@ class TotalHoursViewController: UIViewController {
     private let myTextView2: UILabel = { // job position label
         let textView2 = UILabel()
         textView2.font = .systemFont(ofSize: 18)
-        textView2.textColor = .white
+        textView2.textColor = .nonBasic
         textView2.textAlignment = .center
         return textView2
     }()
@@ -44,7 +44,7 @@ class TotalHoursViewController: UIViewController {
     private let myTextView3A: UILabel = {
         let textView3A = UILabel()
         textView3A.font = .systemFont(ofSize: 22)
-        textView3A.textColor = .white
+        textView3A.textColor = .nonBasic
         textView3A.text = "Monday"
         return textView3A
     }()
@@ -52,7 +52,7 @@ class TotalHoursViewController: UIViewController {
     private let myTextView4A: UILabel = {
         let textView4A = UILabel()
         textView4A.font = .systemFont(ofSize: 22)
-        textView4A.textColor = .white
+        textView4A.textColor = .nonBasic
         textView4A.text = "Tuesday"
         return textView4A
     }()
@@ -60,7 +60,7 @@ class TotalHoursViewController: UIViewController {
     private let myTextView5A: UILabel = {
         let textView5A = UILabel()
         textView5A.font = .systemFont(ofSize: 22)
-        textView5A.textColor = .white
+        textView5A.textColor = .nonBasic
         textView5A.text = "Wednesday"
         return textView5A
     }()
@@ -68,7 +68,7 @@ class TotalHoursViewController: UIViewController {
     private let myTextView6A: UILabel = {
         let textView6A = UILabel()
         textView6A.font = .systemFont(ofSize: 22)
-        textView6A.textColor = .white
+        textView6A.textColor = .nonBasic
         textView6A.text = "Thursday"
         return textView6A
     }()
@@ -76,7 +76,7 @@ class TotalHoursViewController: UIViewController {
     private let myTextView7A: UILabel = {
         let textView7A = UILabel()
         textView7A.font = .systemFont(ofSize: 22)
-        textView7A.textColor = .white
+        textView7A.textColor = .nonBasic
         textView7A.text = "Friday"
         return textView7A
     }()
@@ -84,7 +84,7 @@ class TotalHoursViewController: UIViewController {
     private let myTextView8A: UILabel = {
         let textView8A = UILabel()
         textView8A.font = .systemFont(ofSize: 22)
-        textView8A.textColor = .white
+        textView8A.textColor = .nonBasic
         textView8A.text = "Saturday"
         return textView8A
     }()
@@ -92,7 +92,7 @@ class TotalHoursViewController: UIViewController {
     private let myTextView9A: UILabel = {
         let textView9A = UILabel()
         textView9A.font = .systemFont(ofSize: 22)
-        textView9A.textColor = .white
+        textView9A.textColor = .nonBasic
         textView9A.text = "Sunday"
         return textView9A
     }()
@@ -100,7 +100,7 @@ class TotalHoursViewController: UIViewController {
     private let myTextView10A: UILabel = {
         let textView10A = UILabel()
         textView10A.font = .systemFont(ofSize: 22)
-        textView10A.textColor = .white
+        textView10A.textColor = .nonBasic
         textView10A.text = "Total Earned\t\t:\t$"
         return textView10A
     }()
@@ -109,7 +109,7 @@ class TotalHoursViewController: UIViewController {
     private let myTextView3: UILabel = {
         let textView3 = UILabel()
         textView3.font = .systemFont(ofSize: 22)
-        textView3.textColor = .white
+        textView3.textColor = .nonBasic
         textView3.textAlignment = .center
         return textView3
     }()
@@ -117,7 +117,7 @@ class TotalHoursViewController: UIViewController {
     private let myTextView4: UILabel = {
         let textView4 = UILabel()
         textView4.font = .systemFont(ofSize: 22)
-        textView4.textColor = .white
+        textView4.textColor = .nonBasic
         textView4.textAlignment = .center
         return textView4
     }()
@@ -125,7 +125,7 @@ class TotalHoursViewController: UIViewController {
     private let myTextView5: UILabel = {
         let textView5 = UILabel()
         textView5.font = .systemFont(ofSize: 22)
-        textView5.textColor = .white
+        textView5.textColor = .nonBasic
         textView5.textAlignment = .center
         return textView5
     }()
@@ -133,7 +133,7 @@ class TotalHoursViewController: UIViewController {
     private let myTextView6: UILabel = {
         let textView6 = UILabel()
         textView6.font = .systemFont(ofSize: 22)
-        textView6.textColor = .white
+        textView6.textColor = .nonBasic
         textView6.textAlignment = .center
         return textView6
     }()
@@ -141,7 +141,7 @@ class TotalHoursViewController: UIViewController {
     private let myTextView7: UILabel = {
         let textView7 = UILabel()
         textView7.font = .systemFont(ofSize: 22)
-        textView7.textColor = .white
+        textView7.textColor = .nonBasic
         textView7.textAlignment = .center
         return textView7
     }()
@@ -149,7 +149,7 @@ class TotalHoursViewController: UIViewController {
     private let myTextView8: UILabel = {
         let textView8 = UILabel()
         textView8.font = .systemFont(ofSize: 22)
-        textView8.textColor = .white
+        textView8.textColor = .nonBasic
         textView8.textAlignment = .center
         return textView8
     }()
@@ -157,7 +157,7 @@ class TotalHoursViewController: UIViewController {
     private let myTextView9: UILabel = {
         let textView9 = UILabel()
         textView9.font = .systemFont(ofSize: 22)
-        textView9.textColor = .white
+        textView9.textColor = .nonBasic
         textView9.textAlignment = .center
         return textView9
     }()
@@ -165,7 +165,7 @@ class TotalHoursViewController: UIViewController {
     private let myTextView10: UILabel = {
         let textView10 = UILabel()
         textView10.font = .systemFont(ofSize: 22)
-        textView10.textColor = .white
+        textView10.textColor = .nonBasic
         textView10.textAlignment = .center
         return textView10
     }()
@@ -173,31 +173,31 @@ class TotalHoursViewController: UIViewController {
     /* separation lines */
     private let myTotalLine: UIView = {
         let totalLine = UIView()
-        totalLine.backgroundColor = .white
+        totalLine.backgroundColor = .nonBasic
         return totalLine
     }()
     
     private let myTotalLine2: UIView = {
         let totalLine2 = UIView()
-        totalLine2.backgroundColor = .white
+        totalLine2.backgroundColor = .nonBasic
         return totalLine2
     }()
     
     private let myTotalLine3: UIView = {
         let totalLine3 = UIView()
-        totalLine3.backgroundColor = .white
+        totalLine3.backgroundColor = .nonBasic
         return totalLine3
     }()
     
     private let myHorizontalLine: UIView = {
         let horizontalLine = UIView()
-        horizontalLine.backgroundColor = .white
+        horizontalLine.backgroundColor = .nonBasic
         return horizontalLine
     }()
     
     private let myBackgroundColor: UIView = {
         let backgroundColor = UIView()
-        backgroundColor.backgroundColor = .systemIndigo.withAlphaComponent(0.65)//UIColor(red: 0.8, green: 1.0, blue: 0.7, alpha: 0.7)
+        backgroundColor.backgroundColor = .customPurple2?.withAlphaComponent(0.65)
         return backgroundColor
     }()
     
@@ -241,8 +241,6 @@ class TotalHoursViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        overrideUserInterfaceStyle = .dark
         
         view.addSubview(self.myTextView1)
         view.addSubview(self.myTextView2)
