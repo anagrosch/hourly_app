@@ -11,6 +11,7 @@ class DetailsViewController: UIViewController {
 
     let jf = JobFunctions()
     let screen = UIScreen.main.bounds
+    var navH: CGFloat = 0
     var info = ""
     var heading = ""
     var line = UIView()
@@ -21,6 +22,8 @@ class DetailsViewController: UIViewController {
         self.title = heading
         view.backgroundColor = .basic
         
+        navH = (self.navigationController?.navigationBar.frame.height)!
+        
         line = jf.createLine()
         label = jf.createLabel(text: info, color: .nonBasic!)
         view.addSubview(line)
@@ -28,8 +31,8 @@ class DetailsViewController: UIViewController {
     }
     
     override func viewDidLayoutSubviews() {
-        line.frame = CGRect(x: 0, y: 100, width: screen.width, height: 2)
-        label.frame = CGRect(x: 30, y: 135, width: 315, height: 75)
+        line.frame = CGRect(x: 0, y: 2.2*navH, width: screen.width, height: 2)
+        label.frame = CGRect(x: 30, y: 2*(screen.height/13), width: screen.width - 60, height: 75)
     }
     
 }

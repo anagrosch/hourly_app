@@ -31,7 +31,11 @@ class ViewController: UIViewController, UIPageViewControllerDelegate, UIPageView
     var sendJobNumber = 0
     var rounds = false
     var pdfData: String = ""
-    var screen = UIScreen.main.bounds
+    
+    let screen = UIScreen.main.bounds
+    var int11: CGFloat = 0
+    var int13: CGFloat = 0
+    var navH: CGFloat = 0
     
     var heading = UILabel()
     var line1 = UIView()
@@ -48,6 +52,9 @@ class ViewController: UIViewController, UIPageViewControllerDelegate, UIPageView
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .basic
+        
+        int11 = screen.height/11
+        int13 = screen.height/13
         
         heading = jf.createHeading(text: "SELECT POSITION", color: .systemTeal)
         line1 = jf.createLine()
@@ -86,21 +93,6 @@ class ViewController: UIViewController, UIPageViewControllerDelegate, UIPageView
         
     }
     
-    override func viewDidLayoutSubviews() {
-        heading.frame = CGRect(x: 30, y: 130, width: 315, height: 50)
-        line1.frame = CGRect(x: 0, y: 100, width: screen.width, height: 2)
-        line2.frame = CGRect(x: 0, y: 605, width: screen.width, height: 2)
-        line3.frame = CGRect(x: 0, y: 770, width: screen.width, height: 2)
-        
-        job1Button.frame = CGRect(x: 30, y: 220, width: 315, height: 50)
-        job2Button.frame = CGRect(x: 30, y: 290, width: 315, height: 50)
-        job3Button.frame = CGRect(x: 30, y: 360, width: 315, height: 50)
-        job4Button.frame = CGRect(x: 30, y: 430, width: 315, height: 50)
-        job5Button.frame = CGRect(x: 30, y: 500, width: 315, height: 50)
-        totalHoursButton.frame = CGRect(x: 30, y: 630, width: 315, height: 50)
-        addJobButton.frame = CGRect(x: 30, y: 700, width: 315, height: 50)
-    }
-    
     override func viewWillAppear(_ animated: Bool) {
         let infoButton = jf.createBarButton(image: infoImage, target: self, action: #selector(goToHelpCenter(_:)))
         let settingsButton = jf.createBarButton(image: settingsImage, target: self, action: #selector(goToSettings(_:)))
@@ -109,6 +101,7 @@ class ViewController: UIViewController, UIPageViewControllerDelegate, UIPageView
         
         
         self.navigationController?.navigationBar.backgroundColor = .basic
+        navH = (self.navigationController?.navigationBar.frame.height)!
         self.navigationItem.rightBarButtonItems = [infoButton, settingsButton, resetButton, saveButton]
         
         checkButtons() // show used buttons
@@ -125,6 +118,21 @@ class ViewController: UIViewController, UIPageViewControllerDelegate, UIPageView
                               repeats: false)
             RunLoop.main.add(timer, forMode: .common)
         }
+    }
+    
+    override func viewDidLayoutSubviews() {
+        heading.frame = CGRect(x: 0, y: 2*int13, width: screen.width, height: 50)
+        line1.frame = CGRect(x: 0, y: 2.2*navH, width: screen.width, height: 2)
+        line2.frame = CGRect(x: 0, y: Int(10*int13 - int13/2), width: Int(screen.width), height: 2)
+        line3.frame = CGRect(x: 0, y: Int(11*int13 + 50 + int13/2), width: Int(screen.width), height: 2)
+        
+        job1Button.frame = CGRect(x: 30, y: 3*int11, width: screen.width - 60, height: 0.7*int11)
+        job2Button.frame = CGRect(x: 30, y: 4*int11, width: screen.width - 60, height: 0.7*int11)
+        job3Button.frame = CGRect(x: 30, y: 5*int11, width: screen.width - 60, height: 0.7*int11)
+        job4Button.frame = CGRect(x: 30, y: 6*int11, width: screen.width - 60, height: 0.7*int11)
+        job5Button.frame = CGRect(x: 30, y: 7*int11, width: screen.width - 60, height: 0.7*int11)
+        totalHoursButton.frame = CGRect(x: 30, y: 10*int13, width: screen.width - 60, height: 0.7*int11)
+        addJobButton.frame = CGRect(x: 30, y: 11*int13, width: screen.width - 60, height: 0.7*int11)
     }
     
     /* display button functions */

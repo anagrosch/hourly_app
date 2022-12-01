@@ -23,6 +23,8 @@ class TimerViewController: UIViewController {
     var hoursWorked: [Int16] = [0, 0, 0, 0, 0, 0, 0]
     var final = Int16()
     
+    let screen = UIScreen.main.bounds
+    
     var heading = UILabel()
     var displayInfo = UILabel()
     let displayFinalTime = UILabel()
@@ -63,13 +65,13 @@ class TimerViewController: UIViewController {
     }
     
     override func viewDidLayoutSubviews() {
-        heading.frame = CGRect(x: 30, y: 75, width: 315, height: 50)
-        displayInfo.frame = CGRect(x: 35, y: 155, width: 305, height: 140)
-        displayFinalTime.frame = CGRect(x: 62, y: 250, width: 300, height: 33)
-        displayStopwatch.frame = CGRect(x: 35, y: 444, width: 305, height: 122)
-        startButton.frame = CGRect(x: 23, y: 364, width: 156, height: 40)
-        endButton.frame = CGRect(x: 196, y: 364, width: 156, height: 40)
-        sessionButton.frame = CGRect(x: 23, y: 616, width: 329, height: 40)
+        heading.frame = CGRect(x: 0, y: (screen.height/11), width: screen.width, height: 50)
+        displayInfo.frame = CGRect(x: 35, y: 3*(screen.height/13), width: screen.width - 70, height: 140)
+        displayFinalTime.frame = CGRect(x: 62, y: 3*(screen.height/13) + 100, width: 300, height: 33)
+        displayStopwatch.frame = CGRect(x: 35, y: 6*(screen.height/11), width: screen.width - 70, height: 122)
+        startButton.frame = CGRect(x: 23, y: 5*(screen.height/11), width: (screen.width/2) - 25, height: 0.05*(screen.height))
+        endButton.frame = CGRect(x: (screen.width/2) + 5, y: 5*(screen.height/11), width: (screen.width/2) - 25, height: 0.05*(screen.height))
+        sessionButton.frame = CGRect(x: 23, y: 10*(screen.height/13), width: screen.width - 46, height: 0.05*(screen.height))
     }
     
     func saveHoursToJobInfo(num: Int16) {

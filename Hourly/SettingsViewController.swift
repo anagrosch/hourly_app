@@ -20,7 +20,6 @@ class SettingsViewController: UIViewController, UISearchBarDelegate {
     var border4 = UIView()
     var border5 = UIView()
     var border6 = UIView()
-    var border7 = UIView()
     
     var enableText = UILabel()
     var group1Text = UILabel()
@@ -32,6 +31,8 @@ class SettingsViewController: UIViewController, UISearchBarDelegate {
     var job4Text = UILabel()
     var job5Text = UILabel()
     
+    let screen = UIScreen.main.bounds
+    var navH: CGFloat = 0
    
     let arrow1 = UIButton()
     let arrow2 = UIButton()
@@ -53,6 +54,7 @@ class SettingsViewController: UIViewController, UISearchBarDelegate {
         super.viewDidLoad()
         let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.systemTeal]
         navigationController?.navigationBar.titleTextAttributes = textAttributes
+        navH = (navigationController?.navigationBar.frame.height)!
         
         view.backgroundColor = .basic
         self.title = "SETTINGS"
@@ -64,7 +66,6 @@ class SettingsViewController: UIViewController, UISearchBarDelegate {
         border4 = jf.createBorder()
         border5 = jf.createBorder()
         border6 = jf.createBorder()
-        border7 = jf.createBorder()
         
         enableText = jf.createLabel(text: "Enable Rounding", color: .nonBasic!)
         group1Text = jf.createLabel(text: "HOUR ROUNDING", color: .arrow!)
@@ -95,7 +96,6 @@ class SettingsViewController: UIViewController, UISearchBarDelegate {
         view.addSubview(border4)
         view.addSubview(border5)
         view.addSubview(border6)
-        view.addSubview(border7)
         view.addSubview(headerLine)
         
         view.addSubview(group1Text)
@@ -128,33 +128,32 @@ class SettingsViewController: UIViewController, UISearchBarDelegate {
     
     override func viewDidLayoutSubviews() {
         
-        group1Text.frame = CGRect(x: 20, y: 135, width: 134, height: 20)
-        group2Text.frame = CGRect(x: 20, y: 235, width: 134, height: 20)
-        group3Text.frame = CGRect(x: 20, y: 535, width: 134, height: 20)
+        group1Text.frame = CGRect(x: 20, y: 2*(screen.height/13), width: 134, height: 20)
+        group2Text.frame = CGRect(x: 20, y: 2*(screen.height/7), width: 134, height: 20)
+        group3Text.frame = CGRect(x: 20, y: 7*(screen.height/11), width: 134, height: 20)
         
-        border1.frame = CGRect(x: 20, y: 165, width: 335, height: 40)
-        border2.frame = CGRect(x: 20, y: 265, width: 335, height: 40)
-        border3.frame = CGRect(x: 20, y: 265, width: 335, height: 40)
-        border4.frame = CGRect(x: 20, y: 310, width: 335, height: 40)
-        border5.frame = CGRect(x: 20, y: 355, width: 335, height: 40)
-        border6.frame = CGRect(x: 20, y: 400, width: 335, height: 40)
-        border7.frame = CGRect(x: 20, y: 445, width: 335, height: 40)
-        headerLine.frame = CGRect(x: 0, y: 100, width: 375, height: 2)
+        border1.frame = CGRect(x: 20, y: 2*(screen.height/13) + 30, width: screen.width - 40, height: 0.05*(screen.height))
+        border2.frame = CGRect(x: 20, y: 2*(screen.height/7) + 30, width: screen.width - 40, height: 0.05*(screen.height))
+        border3.frame = CGRect(x: 20, y: 2*(screen.height/7) + 75, width: screen.width - 40, height: 0.05*(screen.height))
+        border4.frame = CGRect(x: 20, y: 2*(screen.height/7) + 120, width: screen.width - 40, height: 0.05*(screen.height))
+        border5.frame = CGRect(x: 20, y: 2*(screen.height/7) + 165, width: screen.width - 40, height: 0.05*(screen.height))
+        border6.frame = CGRect(x: 20, y: 2*(screen.height/7) + 210, width: screen.width - 40, height: 0.05*(screen.height))
+        headerLine.frame = CGRect(x: 0, y: 2.2*navH, width: screen.width, height: 2)
         
-        enableText.frame = CGRect(x: 30, y: 175, width: 122, height: 20)
-        job1Text.frame = CGRect(x: 30, y: 275, width: 122, height: 20)
-        job2Text.frame = CGRect(x: 30, y: 320, width: 122, height: 20)
-        job3Text.frame = CGRect(x: 30, y: 365, width: 122, height: 20)
-        job4Text.frame = CGRect(x: 30, y: 410, width: 122, height: 20)
-        job5Text.frame = CGRect(x: 30, y: 455, width: 122, height: 20)
+        enableText.frame = CGRect(x: 30, y: 2*(screen.height/13) + 40, width: 122, height: 20)
+        job1Text.frame = CGRect(x: 30, y: 2*(screen.height/7) + 40, width: 122, height: 20)
+        job2Text.frame = CGRect(x: 30, y: 2*(screen.height/7) + 85, width: 122, height: 20)
+        job3Text.frame = CGRect(x: 30, y: 2*(screen.height/7) + 130, width: 122, height: 20)
+        job4Text.frame = CGRect(x: 30, y: 2*(screen.height/7) + 175, width: 122, height: 20)
+        job5Text.frame = CGRect(x: 30, y: 2*(screen.height/7) + 220, width: 122, height: 20)
         
-        enableSwitch.frame = CGRect(x: 295, y: 170, width: 51, height: 31)
-        arrow1.frame = CGRect(x: 305, y: 265, width: 40, height: 40)
-        arrow2.frame = CGRect(x: 305, y: 310, width: 40, height: 40)
-        arrow3.frame = CGRect(x: 305, y: 355, width: 40, height: 40)
-        arrow4.frame = CGRect(x: 305, y: 400, width: 40, height: 40)
-        arrow5.frame = CGRect(x: 305, y: 445, width: 40, height: 40)
-        clearJobs.frame = CGRect(x: 20, y: 565, width: 335, height: 40)
+        enableSwitch.frame = CGRect(x: screen.width - 80, y: 2*(screen.height/13) + 35, width: 51, height: 31)
+        arrow1.frame = CGRect(x: screen.width - 70, y: 2*(screen.height/7) + 31, width: 40, height: 40)
+        arrow2.frame = CGRect(x: screen.width - 70, y: 2*(screen.height/7) + 76, width: 40, height: 40)
+        arrow3.frame = CGRect(x: screen.width - 70, y: 2*(screen.height/7) + 121, width: 40, height: 40)
+        arrow4.frame = CGRect(x: screen.width - 70, y: 2*(screen.height/7) + 166, width: 40, height: 40)
+        arrow5.frame = CGRect(x: screen.width - 70, y: 2*(screen.height/7) + 211, width: 40, height: 40)
+        clearJobs.frame = CGRect(x: 20, y: 7*(screen.height/11) + 30, width: screen.width - 40, height: 0.045*(screen.height))
     }
 
     @objc func goToJob1(_ sender: UIButton!) {

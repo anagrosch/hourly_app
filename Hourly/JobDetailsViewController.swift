@@ -22,6 +22,9 @@ class JobDetailsViewController: UIViewController {
     var wageField = UITextField()
     var clearHours = UIButton()
     
+    let screen = UIScreen.main.bounds
+    var navH: CGFloat = 0
+    
     var jobNum = 0
     var job = ""
     var wage = 0.0
@@ -31,6 +34,8 @@ class JobDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .basic
+        
+        navH = (self.navigationController?.navigationBar.frame.height)!
 
         self.title = "Job " + String(jobNum)
         headerLine = jf.createLine()
@@ -73,14 +78,14 @@ class JobDetailsViewController: UIViewController {
     }
     
     override func viewDidLayoutSubviews() {
-        headerLine.frame = CGRect(x: 0, y: 100, width: 375, height: 2)
-        border1.frame = CGRect(x: 20, y: 125, width: 335, height: 40)
-        border2.frame = CGRect(x: 20, y: 185, width: 335, height: 40)
-        titleLabel.frame = CGRect(x: 30, y: 125, width: 150, height: 40)
-        wageLabel.frame =  CGRect(x: 30, y: 185, width: 150, height: 40)
-        titleField.frame = CGRect(x: 159, y: 128, width: 180, height: 33)
-        wageField.frame = CGRect(x: 159, y: 188, width: 180, height: 33)
-        clearHours.frame = CGRect(x: 20, y: 300, width: 335, height: 40)
+        headerLine.frame = CGRect(x: 0, y: 2.2*navH, width: screen.width, height: 2)
+        border1.frame = CGRect(x: 20, y: 2*(screen.height/13), width: screen.width - 40, height: 0.054*(screen.height))
+        border2.frame = CGRect(x: 20, y: 3*(screen.height/13), width: screen.width - 40, height: 0.054*(screen.height))
+        titleLabel.frame = CGRect(x: 30, y: 2*(screen.height/13) + 3, width: 150, height: 0.045*(screen.height))
+        wageLabel.frame =  CGRect(x: 30, y: 3*(screen.height/13) + 3, width: 150, height: 0.045*(screen.height))
+        titleField.frame = CGRect(x: 159, y: 2*(screen.height/13) + 3, width: screen.width - 200, height: 0.05*(screen.height))
+        wageField.frame = CGRect(x: 159, y: 3*(screen.height/13) + 3, width: screen.width - 200, height: 0.05*(screen.height))
+        clearHours.frame = CGRect(x: 20, y: 4*(screen.height/11), width: screen.width - 40, height: 0.054*(screen.height))
     }
     
     @objc func titleChanged() {

@@ -18,6 +18,8 @@ class AddButtonViewController: UIViewController {
     var hourlyWageTextField = UITextField()
     var addJobButton = UIButton()
     
+    let screen = UIScreen.main.bounds
+    
     var boolArray = [true, true, true, true, true]
     var positionArray = ["", "", "", "", ""]
     var wages = [0.0, 0.0, 0.0, 0.0, 0.0]
@@ -44,10 +46,10 @@ class AddButtonViewController: UIViewController {
     }
     
     override func viewDidLayoutSubviews() {
-        heading.frame = CGRect(x: 30, y: 80, width: 315, height: 40)
-        jobTitleTextField.frame = CGRect(x: 30, y: 210, width: 315, height: 34)
-        hourlyWageTextField.frame = CGRect(x: 30, y: 285, width: 315, height: 34)
-        addJobButton.frame = CGRect(x: 30, y: 425, width: 315, height: 50)
+        heading.frame = CGRect(x: 0, y: 2*(screen.height/14), width: screen.width, height: 40)
+        jobTitleTextField.frame = CGRect(x: 30, y: 3*(screen.height/11), width: screen.width - 60, height: 0.054*(screen.height))
+        hourlyWageTextField.frame = CGRect(x: 30, y: 4*(screen.height/11), width: screen.width - 60, height: 0.054*(screen.height))
+        addJobButton.frame = CGRect(x: 30, y: 6*(screen.height/11), width: screen.width - 60, height: 0.054*(screen.height))
     }
 
     func addDoneButtonOnNumpad(textField: UITextField) {
@@ -64,7 +66,7 @@ class AddButtonViewController: UIViewController {
     }
     
     @objc func addJobPressed(_ sender: UIButton!) {
-        
+        // check if job name and wage has info to save
         if jobTitleTextField.text == "" || hourlyWageTextField.text == "" {
             let alert = UIAlertController(title: "Missing Information", message: "Please enter both job title and hourly wage. Or click cancel to exit.", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: { (_) in
@@ -74,37 +76,54 @@ class AddButtonViewController: UIViewController {
             
             present(alert, animated: true)
         }
-        else {
-            jf.modifyPay(array: &wages)
-            jf.modify(array: &positionArray)
-            jf.modifyBool(array: &boolArray)
+        
+        jf.modify(array: &positionArray)
+        
+        // check if job name already exists
+        if positionArray.contains(jobTitleTextField.text!) {
+            let alert2 = UIAlertController(title: "Invalid Job", message: "This job title already exists. Rename the job or click cancel to exit.", preferredStyle: .alert)
+            alert2.addAction(UIAlertAction(title: "Cancel", style: .default, handler: { (_) in
+                self.dismiss(animated: true, completion: nil)
+            }))
+            alert2.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
             
-            if self.positionArray[0] == "" {
-                self.positionArray[0] = jobTitleTextField.text!
-                self.wages[0] = Double(hourlyWageTextField.text!)!
-                self.boolArray[0] = false
-            } else if self.positionArray[1] == "" {
-                self.positionArray[1] = jobTitleTextField.text!
-                self.wages[1] = Double(hourlyWageTextField.text!)!
-                self.boolArray[1] = false
-            } else if self.positionArray[2] == "" {
-                self.positionArray[2] = jobTitleTextField.text!
-                self.wages[2] = Double(hourlyWageTextField.text!)!
-                self.boolArray[2] = false
-            } else if self.positionArray[3] == "" {
-                self.positionArray[3] = jobTitleTextField.text!
-                self.wages[3] = Double(hourlyWageTextField.text!)!
-                self.boolArray[3] = false
-            } else if self.positionArray[4] == "" {
-                self.positionArray[4] = jobTitleTextField.text!
-                self.wages[4] = Double(hourlyWageTextField.text!)!
-                self.boolArray[4] = false
-            }
-            jf.savePayFromTmp(array: &wages)
-            jf.saveNamesFromTmp(array: &positionArray)
-            jf.saveBoolFromTmp(array: &boolArray)
-            
-            performSegue(withIdentifier: "returnHome", sender: self)
+            present(alert2, animated: true)
         }
+        
+        // save fixed job name
+        else { saveInfo() }
+        
+    }
+    
+    func saveInfo() {   // create job option with input
+        jf.modifyPay(array: &wages)
+        jf.modifyBool(array: &boolArray)
+        
+        if self.positionArray[0] == "" {
+            self.positionArray[0] = jobTitleTextField.text!
+            self.wages[0] = Double(hourlyWageTextField.text!)!
+            self.boolArray[0] = false
+        } else if self.positionArray[1] == "" {
+            self.positionArray[1] = jobTitleTextField.text!
+            self.wages[1] = Double(hourlyWageTextField.text!)!
+            self.boolArray[1] = false
+        } else if self.positionArray[2] == "" {
+            self.positionArray[2] = jobTitleTextField.text!
+            self.wages[2] = Double(hourlyWageTextField.text!)!
+            self.boolArray[2] = false
+        } else if self.positionArray[3] == "" {
+            self.positionArray[3] = jobTitleTextField.text!
+            self.wages[3] = Double(hourlyWageTextField.text!)!
+            self.boolArray[3] = false
+        } else if self.positionArray[4] == "" {
+            self.positionArray[4] = jobTitleTextField.text!
+            self.wages[4] = Double(hourlyWageTextField.text!)!
+            self.boolArray[4] = false
+        }
+        jf.savePayFromTmp(array: &wages)
+        jf.saveNamesFromTmp(array: &positionArray)
+        jf.saveBoolFromTmp(array: &boolArray)
+        
+        performSegue(withIdentifier: "returnHome", sender: self)
     }
 }
