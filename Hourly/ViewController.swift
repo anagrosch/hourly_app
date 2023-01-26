@@ -15,6 +15,8 @@ class ViewController: UIViewController, UIPageViewControllerDelegate, UIPageView
     /* var for totals page */
     var myControllers = [UIViewController]()
     
+    var defaults = UserDefaults(suiteName: "group.hourlyData")
+    
     /* Core Data initializations */
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     private var jobPositionsModels = [JobPositions]()
@@ -90,7 +92,6 @@ class ViewController: UIViewController, UIPageViewControllerDelegate, UIPageView
         
         checkButtons() // show used buttons
         setButtonTitles() // name buttons
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -99,6 +100,9 @@ class ViewController: UIViewController, UIPageViewControllerDelegate, UIPageView
         let resetButton = jf.createBarButton(image: resetImage, target: self, action: #selector(resetHours(_:)))
         let saveButton = jf.createBarButton(image: saveImage, target: self, action: #selector(savePDF(_:)))
         
+        
+        let receivedNum = defaults!.integer(forKey: "sentJob")
+        job1Button.setTitle(String(receivedNum), for: .normal)
         
         self.navigationController?.navigationBar.backgroundColor = .basic
         navH = (self.navigationController?.navigationBar.frame.height)!

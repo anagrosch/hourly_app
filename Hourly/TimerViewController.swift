@@ -14,8 +14,8 @@ class TimerViewController: UIViewController {
     let jf = JobFunctions()
     
     var timer: Timer = Timer()
-    var count:Int = 0
-    var timerCounting:Bool = false
+    var count: Int = 0
+    var timerCounting: Bool = false
     
     var jobNumber = 0
     var pay = [0.0, 0.0, 0.0, 0.0, 0.0]

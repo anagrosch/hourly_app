@@ -7,11 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1702BDE52944448700FCABFA /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1702BDE32944448700FCABFA /* Interface.storyboard */; };
+		1702BDE8294444A600FCABFA /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1702BDE6294444A600FCABFA /* InterfaceController.swift */; };
+		1702BDEE294832F400FCABFA /* SaverInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1702BDED294832F400FCABFA /* SaverInterfaceController.swift */; };
 		1715763227DFD2C20043AEB2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1715763127DFD2C20043AEB2 /* AppDelegate.swift */; };
 		1715763427DFD2C20043AEB2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1715763327DFD2C20043AEB2 /* SceneDelegate.swift */; };
 		1715763627DFD2C20043AEB2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1715763527DFD2C20043AEB2 /* ViewController.swift */; };
 		1715763927DFD2C20043AEB2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1715763727DFD2C20043AEB2 /* Main.storyboard */; };
-		1715763C27DFD2C20043AEB2 /* Hourly.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1715763A27DFD2C20043AEB2 /* Hourly.xcdatamodeld */; };
 		1715763E27DFD2C40043AEB2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1715763D27DFD2C40043AEB2 /* Assets.xcassets */; };
 		1715764127DFD2C40043AEB2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1715763F27DFD2C40043AEB2 /* LaunchScreen.storyboard */; };
 		1715764927DFD54B0043AEB2 /* AddButtonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1715764827DFD54B0043AEB2 /* AddButtonViewController.swift */; };
@@ -34,17 +36,71 @@
 		172A610F2921E8A400E5E4C9 /* RoundingOption+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172A610D2921E8A400E5E4C9 /* RoundingOption+CoreDataClass.swift */; };
 		172A61102921E8A400E5E4C9 /* RoundingOption+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172A610E2921E8A400E5E4C9 /* RoundingOption+CoreDataProperties.swift */; };
 		1731367A2930748600E32EBE /* JobFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173136792930748600E32EBE /* JobFunctions.swift */; };
-		174FBF3A293112EF0067C43A /* AppMode+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174FBF38293112EF0067C43A /* AppMode+CoreDataClass.swift */; };
-		174FBF3B293112EF0067C43A /* AppMode+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174FBF39293112EF0067C43A /* AppMode+CoreDataProperties.swift */; };
 		176CAB2E27E3928600517C14 /* HideButtons+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176CAB2C27E3928600517C14 /* HideButtons+CoreDataClass.swift */; };
 		176CAB2F27E3928600517C14 /* HideButtons+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176CAB2D27E3928600517C14 /* HideButtons+CoreDataProperties.swift */; };
 		1776DE7227E6788F003B056D /* HelpCenterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1776DE7127E6788F003B056D /* HelpCenterTableViewController.swift */; };
 		1779383827E4C5FF006ED568 /* JobWages+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1779383627E4C5FF006ED568 /* JobWages+CoreDataClass.swift */; };
 		1779383927E4C5FF006ED568 /* JobWages+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1779383727E4C5FF006ED568 /* JobWages+CoreDataProperties.swift */; };
 		1779383C27E4D642006ED568 /* TotalHoursViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1779383B27E4D642006ED568 /* TotalHoursViewController.swift */; };
+		178581EF2941AFB500943B86 /* Hourly.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1715763A27DFD2C20043AEB2 /* Hourly.xcdatamodeld */; };
+		178582302944429C00943B86 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1785822F2944429C00943B86 /* Assets.xcassets */; };
+		178582362944429C00943B86 /* HourlyWatch WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 178582352944429C00943B86 /* HourlyWatch WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		1785823D2944429D00943B86 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1785823C2944429D00943B86 /* ExtensionDelegate.swift */; };
+		1785823F2944429D00943B86 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1785823E2944429D00943B86 /* NotificationController.swift */; };
+		178582412944429D00943B86 /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178582402944429D00943B86 /* ComplicationController.swift */; };
+		178582432944429E00943B86 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 178582422944429E00943B86 /* Assets.xcassets */; };
+		178582482944429E00943B86 /* HourlyWatch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 1785822A2944429900943B86 /* HourlyWatch.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		17A6241B2948424D00DCB1C1 /* JobPositions+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1715766E27DFEA320043AEB2 /* JobPositions+CoreDataClass.swift */; };
+		17A6241C2948425000DCB1C1 /* JobPositions+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1715766F27DFEA320043AEB2 /* JobPositions+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		178582372944429C00943B86 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1715762627DFD2C20043AEB2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 178582342944429C00943B86;
+			remoteInfo = "HourlyWatch WatchKit Extension";
+		};
+		178582462944429E00943B86 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1715762627DFD2C20043AEB2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 178582292944429900943B86;
+			remoteInfo = HourlyWatch;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		177821F2293847750008F635 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				178582482944429E00943B86 /* HourlyWatch.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1785824C2944429E00943B86 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				178582362944429C00943B86 /* HourlyWatch WatchKit Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		1702BDE42944448700FCABFA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = HourlyWatch/Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		1702BDE6294444A600FCABFA /* InterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
+		1702BDED294832F400FCABFA /* SaverInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaverInterfaceController.swift; sourceTree = "<group>"; };
+		1702BDEF29483C8800FCABFA /* HourlyWatch WatchKit Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "HourlyWatch WatchKit Extension.entitlements"; sourceTree = "<group>"; };
 		1715762E27DFD2C20043AEB2 /* Hourly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hourly.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1715763127DFD2C20043AEB2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1715763327DFD2C20043AEB2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -74,14 +130,21 @@
 		172A610D2921E8A400E5E4C9 /* RoundingOption+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RoundingOption+CoreDataClass.swift"; sourceTree = "<group>"; };
 		172A610E2921E8A400E5E4C9 /* RoundingOption+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RoundingOption+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		173136792930748600E32EBE /* JobFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobFunctions.swift; sourceTree = "<group>"; };
-		174FBF38293112EF0067C43A /* AppMode+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppMode+CoreDataClass.swift"; sourceTree = "<group>"; };
-		174FBF39293112EF0067C43A /* AppMode+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppMode+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		176CAB2C27E3928600517C14 /* HideButtons+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HideButtons+CoreDataClass.swift"; sourceTree = "<group>"; };
 		176CAB2D27E3928600517C14 /* HideButtons+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HideButtons+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		1776DE7127E6788F003B056D /* HelpCenterTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpCenterTableViewController.swift; sourceTree = "<group>"; };
 		1779383627E4C5FF006ED568 /* JobWages+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JobWages+CoreDataClass.swift"; sourceTree = "<group>"; };
 		1779383727E4C5FF006ED568 /* JobWages+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JobWages+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		1779383B27E4D642006ED568 /* TotalHoursViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalHoursViewController.swift; sourceTree = "<group>"; };
+		1785822A2944429900943B86 /* HourlyWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HourlyWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1785822F2944429C00943B86 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		178582352944429C00943B86 /* HourlyWatch WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "HourlyWatch WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1785823C2944429D00943B86 /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
+		1785823E2944429D00943B86 /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
+		178582402944429D00943B86 /* ComplicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
+		178582422944429E00943B86 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		178582442944429E00943B86 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		178582452944429E00943B86 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,14 +155,42 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		178582322944429C00943B86 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1704B3B32949725600D740F5 /* SharedData */ = {
+			isa = PBXGroup;
+			children = (
+				172A61092921E5C200E5E4C9 /* RoundingOption */,
+				176CAB3027E3928C00517C14 /* HideButtons */,
+				1779383A27E4C603006ED568 /* JobWages */,
+				1715766727DFE0730043AEB2 /* Job5Info */,
+				1715766227DFE0410043AEB2 /* Job4Info */,
+				1715765D27DFE0080043AEB2 /* Job3Info */,
+				1715765827DFDDCF0043AEB2 /* Job2Info */,
+				1715765327DFDBEE0043AEB2 /* Job1Info */,
+				1715766D27DFE7A70043AEB2 /* JobPositions */,
+				1715763A27DFD2C20043AEB2 /* Hourly.xcdatamodeld */,
+			);
+			path = SharedData;
+			sourceTree = "<group>";
+		};
 		1715762527DFD2C20043AEB2 = {
 			isa = PBXGroup;
 			children = (
+				1704B3B32949725600D740F5 /* SharedData */,
 				1715763027DFD2C20043AEB2 /* Hourly */,
+				1785822B2944429900943B86 /* HourlyWatch */,
+				178582392944429C00943B86 /* HourlyWatch WatchKit Extension */,
 				1715762F27DFD2C20043AEB2 /* Products */,
+				178581E62941A6E200943B86 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -107,6 +198,8 @@
 			isa = PBXGroup;
 			children = (
 				1715762E27DFD2C20043AEB2 /* Hourly.app */,
+				1785822A2944429900943B86 /* HourlyWatch.app */,
+				178582352944429C00943B86 /* HourlyWatch WatchKit Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -114,16 +207,6 @@
 		1715763027DFD2C20043AEB2 /* Hourly */ = {
 			isa = PBXGroup;
 			children = (
-				174FBF3329310C930067C43A /* AppMode */,
-				172A61092921E5C200E5E4C9 /* RoundingOption */,
-				1779383A27E4C603006ED568 /* JobWages */,
-				176CAB3027E3928C00517C14 /* HideButtons */,
-				1715766D27DFE7A70043AEB2 /* JobPositions */,
-				1715766727DFE0730043AEB2 /* Job5Info */,
-				1715766227DFE0410043AEB2 /* Job4Info */,
-				1715765D27DFE0080043AEB2 /* Job3Info */,
-				1715765827DFDDCF0043AEB2 /* Job2Info */,
-				1715765327DFDBEE0043AEB2 /* Job1Info */,
 				1715763127DFD2C20043AEB2 /* AppDelegate.swift */,
 				1715763327DFD2C20043AEB2 /* SceneDelegate.swift */,
 				1715763527DFD2C20043AEB2 /* ViewController.swift */,
@@ -139,7 +222,6 @@
 				1715763D27DFD2C40043AEB2 /* Assets.xcassets */,
 				1715763F27DFD2C40043AEB2 /* LaunchScreen.storyboard */,
 				1715764227DFD2C40043AEB2 /* Info.plist */,
-				1715763A27DFD2C20043AEB2 /* Hourly.xcdatamodeld */,
 			);
 			path = Hourly;
 			sourceTree = "<group>";
@@ -207,15 +289,6 @@
 			path = RoundingOption;
 			sourceTree = "<group>";
 		};
-		174FBF3329310C930067C43A /* AppMode */ = {
-			isa = PBXGroup;
-			children = (
-				174FBF38293112EF0067C43A /* AppMode+CoreDataClass.swift */,
-				174FBF39293112EF0067C43A /* AppMode+CoreDataProperties.swift */,
-			);
-			path = AppMode;
-			sourceTree = "<group>";
-		};
 		176CAB3027E3928C00517C14 /* HideButtons */ = {
 			isa = PBXGroup;
 			children = (
@@ -234,6 +307,38 @@
 			path = JobWages;
 			sourceTree = "<group>";
 		};
+		178581E62941A6E200943B86 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1785822B2944429900943B86 /* HourlyWatch */ = {
+			isa = PBXGroup;
+			children = (
+				1702BDE32944448700FCABFA /* Interface.storyboard */,
+				1785822F2944429C00943B86 /* Assets.xcassets */,
+			);
+			path = HourlyWatch;
+			sourceTree = "<group>";
+		};
+		178582392944429C00943B86 /* HourlyWatch WatchKit Extension */ = {
+			isa = PBXGroup;
+			children = (
+				1702BDEF29483C8800FCABFA /* HourlyWatch WatchKit Extension.entitlements */,
+				1785823C2944429D00943B86 /* ExtensionDelegate.swift */,
+				1785823E2944429D00943B86 /* NotificationController.swift */,
+				178582402944429D00943B86 /* ComplicationController.swift */,
+				1702BDE6294444A600FCABFA /* InterfaceController.swift */,
+				1702BDED294832F400FCABFA /* SaverInterfaceController.swift */,
+				178582422944429E00943B86 /* Assets.xcassets */,
+				178582442944429E00943B86 /* Info.plist */,
+				178582452944429E00943B86 /* PushNotificationPayload.apns */,
+			);
+			path = "HourlyWatch WatchKit Extension";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -244,10 +349,12 @@
 				1715762A27DFD2C20043AEB2 /* Sources */,
 				1715762B27DFD2C20043AEB2 /* Frameworks */,
 				1715762C27DFD2C20043AEB2 /* Resources */,
+				177821F2293847750008F635 /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				178582472944429E00943B86 /* PBXTargetDependency */,
 			);
 			name = Hourly;
 			packageProductDependencies = (
@@ -255,6 +362,40 @@
 			productName = Hourly;
 			productReference = 1715762E27DFD2C20043AEB2 /* Hourly.app */;
 			productType = "com.apple.product-type.application";
+		};
+		178582292944429900943B86 /* HourlyWatch */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1785824D2944429E00943B86 /* Build configuration list for PBXNativeTarget "HourlyWatch" */;
+			buildPhases = (
+				178582282944429900943B86 /* Resources */,
+				1785824C2944429E00943B86 /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				178582382944429C00943B86 /* PBXTargetDependency */,
+			);
+			name = HourlyWatch;
+			productName = HourlyWatch;
+			productReference = 1785822A2944429900943B86 /* HourlyWatch.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		178582342944429C00943B86 /* HourlyWatch WatchKit Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 178582492944429E00943B86 /* Build configuration list for PBXNativeTarget "HourlyWatch WatchKit Extension" */;
+			buildPhases = (
+				178582312944429C00943B86 /* Sources */,
+				178582322944429C00943B86 /* Frameworks */,
+				178582332944429C00943B86 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "HourlyWatch WatchKit Extension";
+			productName = "HourlyWatch WatchKit Extension";
+			productReference = 178582352944429C00943B86 /* HourlyWatch WatchKit Extension.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -268,6 +409,12 @@
 				ORGANIZATIONNAME = "";
 				TargetAttributes = {
 					1715762D27DFD2C20043AEB2 = {
+						CreatedOnToolsVersion = 13.2.1;
+					};
+					178582292944429900943B86 = {
+						CreatedOnToolsVersion = 13.2.1;
+					};
+					178582342944429C00943B86 = {
 						CreatedOnToolsVersion = 13.2.1;
 					};
 				};
@@ -288,6 +435,8 @@
 			projectRoot = "";
 			targets = (
 				1715762D27DFD2C20043AEB2 /* Hourly */,
+				178582292944429900943B86 /* HourlyWatch */,
+				178582342944429C00943B86 /* HourlyWatch WatchKit Extension */,
 			);
 		};
 /* End PBXProject section */
@@ -300,6 +449,23 @@
 				1715764127DFD2C40043AEB2 /* LaunchScreen.storyboard in Resources */,
 				1715763E27DFD2C40043AEB2 /* Assets.xcassets in Resources */,
 				1715763927DFD2C20043AEB2 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		178582282944429900943B86 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1702BDE52944448700FCABFA /* Interface.storyboard in Resources */,
+				178582302944429C00943B86 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		178582332944429C00943B86 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				178582432944429E00943B86 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -328,13 +494,11 @@
 				1715768827E2E9B10043AEB2 /* Job5Info+CoreDataClass.swift in Sources */,
 				1715767927E2E80D0043AEB2 /* Job1Info+CoreDataProperties.swift in Sources */,
 				172A61082921CCFE00E5E4C9 /* JobDetailsViewController.swift in Sources */,
-				174FBF3A293112EF0067C43A /* AppMode+CoreDataClass.swift in Sources */,
 				1715767027DFEA320043AEB2 /* JobPositions+CoreDataClass.swift in Sources */,
 				1715768B27E2F8950043AEB2 /* TimerViewController.swift in Sources */,
+				178581EF2941AFB500943B86 /* Hourly.xcdatamodeld in Sources */,
 				1715768527E2E9600043AEB2 /* Job4Info+CoreDataProperties.swift in Sources */,
 				1715767827E2E80D0043AEB2 /* Job1Info+CoreDataClass.swift in Sources */,
-				1715763C27DFD2C20043AEB2 /* Hourly.xcdatamodeld in Sources */,
-				174FBF3B293112EF0067C43A /* AppMode+CoreDataProperties.swift in Sources */,
 				1715768927E2E9B10043AEB2 /* Job5Info+CoreDataProperties.swift in Sources */,
 				172A61102921E8A400E5E4C9 /* RoundingOption+CoreDataProperties.swift in Sources */,
 				1715764927DFD54B0043AEB2 /* AddButtonViewController.swift in Sources */,
@@ -345,9 +509,44 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		178582312944429C00943B86 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1785823F2944429D00943B86 /* NotificationController.swift in Sources */,
+				1702BDEE294832F400FCABFA /* SaverInterfaceController.swift in Sources */,
+				17A6241B2948424D00DCB1C1 /* JobPositions+CoreDataClass.swift in Sources */,
+				1702BDE8294444A600FCABFA /* InterfaceController.swift in Sources */,
+				178582412944429D00943B86 /* ComplicationController.swift in Sources */,
+				17A6241C2948425000DCB1C1 /* JobPositions+CoreDataProperties.swift in Sources */,
+				1785823D2944429D00943B86 /* ExtensionDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		178582382944429C00943B86 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 178582342944429C00943B86 /* HourlyWatch WatchKit Extension */;
+			targetProxy = 178582372944429C00943B86 /* PBXContainerItemProxy */;
+		};
+		178582472944429E00943B86 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 178582292944429900943B86 /* HourlyWatch */;
+			targetProxy = 178582462944429E00943B86 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
+		1702BDE32944448700FCABFA /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1702BDE42944448700FCABFA /* Base */,
+			);
+			name = Interface.storyboard;
+			sourceTree = "<group>";
+		};
 		1715763727DFD2C20043AEB2 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -488,6 +687,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Hourly/Hourly.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 6XD3HJ2KHK;
@@ -516,6 +716,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Hourly/Hourly.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 6XD3HJ2KHK;
@@ -539,6 +740,120 @@
 			};
 			name = Release;
 		};
+		1785824A2944429E00943B86 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_ENTITLEMENTS = "HourlyWatch WatchKit Extension/HourlyWatch WatchKit Extension.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 6XD3HJ2KHK;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "HourlyWatch WatchKit Extension/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = HourlyWatch;
+				INFOPLIST_KEY_CLKComplicationPrincipalClass = HourlyWatch_WatchKit_Extension.ComplicationController;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_WKExtensionDelegateClassName = HourlyWatch_WatchKit_Extension.ExtensionDelegate;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Hourly.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 8.3;
+			};
+			name = Debug;
+		};
+		1785824B2944429E00943B86 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_ENTITLEMENTS = "HourlyWatch WatchKit Extension/HourlyWatch WatchKit Extension.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 6XD3HJ2KHK;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "HourlyWatch WatchKit Extension/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = HourlyWatch;
+				INFOPLIST_KEY_CLKComplicationPrincipalClass = HourlyWatch_WatchKit_Extension.ComplicationController;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_WKExtensionDelegateClassName = HourlyWatch_WatchKit_Extension.ExtensionDelegate;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Hourly.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 8.3;
+			};
+			name = Release;
+		};
+		1785824E2944429E00943B86 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 6XD3HJ2KHK;
+				GENERATE_INFOPLIST_FILE = YES;
+				IBSC_MODULE = HourlyWatch_WatchKit_Extension;
+				INFOPLIST_KEY_CFBundleDisplayName = HourlyWatch;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.Hourly;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Hourly.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 8.3;
+			};
+			name = Debug;
+		};
+		1785824F2944429E00943B86 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 6XD3HJ2KHK;
+				GENERATE_INFOPLIST_FILE = YES;
+				IBSC_MODULE = HourlyWatch_WatchKit_Extension;
+				INFOPLIST_KEY_CFBundleDisplayName = HourlyWatch;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.Hourly;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Hourly.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 8.3;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -556,6 +871,24 @@
 			buildConfigurations = (
 				1715764627DFD2C40043AEB2 /* Debug */,
 				1715764727DFD2C40043AEB2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		178582492944429E00943B86 /* Build configuration list for PBXNativeTarget "HourlyWatch WatchKit Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1785824A2944429E00943B86 /* Debug */,
+				1785824B2944429E00943B86 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1785824D2944429E00943B86 /* Build configuration list for PBXNativeTarget "HourlyWatch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1785824E2944429E00943B86 /* Debug */,
+				1785824F2944429E00943B86 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

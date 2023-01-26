@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="21507" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+    <device id="watch38"/>
+    <dependencies>
+        <deployment identifier="watchOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="21501"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+    </dependencies>
+    <scenes>
+        <!--Saver Interface Controller-->
+        <scene sceneID="MXz-qW-Lvq">
+            <objects>
+                <controller id="SEG-Uy-yNM" customClass="SaverInterfaceController" customModule="HourlyWatch_WatchKit_Extension">
+                    <items>
+                        <label alignment="center" verticalAlignment="center" text="Select job to save time to" textAlignment="center" numberOfLines="2" id="ib7-lS-IEc"/>
+                        <picker height="63" alignment="center" verticalAlignment="center" focusStyle="stack" id="bOG-V7-Egb">
+                            <connections>
+                                <action selector="jobPicked:" destination="SEG-Uy-yNM" id="ol4-xx-Yf0"/>
+                            </connections>
+                        </picker>
+                        <button width="1" alignment="center" verticalAlignment="center" title="SAVE" id="n3U-am-Kc1">
+                            <color key="backgroundColor" name="primaryPurple"/>
+                            <connections>
+                                <action selector="saveButtonHit" destination="SEG-Uy-yNM" id="i0S-YU-oj6"/>
+                            </connections>
+                        </button>
+                    </items>
+                    <connections>
+                        <outlet property="jobPicker" destination="bOG-V7-Egb" id="xpP-Vt-6t2"/>
+                        <outlet property="label" destination="ib7-lS-IEc" id="szG-qI-VRv"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="220" y="344"/>
+        </scene>
+        <!--Interface Controller-->
+        <scene sceneID="aou-V4-d1y">
+            <objects>
+                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="HourlyWatch" customModuleProvider="target">
+                    <items>
+                        <label height="35" alignment="center" verticalAlignment="center" text="GOOD LUCK!" textAlignment="center" numberOfLines="0" id="yvf-rM-o4N"/>
+                        <label height="66" alignment="center" verticalAlignment="center" text="00:00:00" id="6hW-3t-fE5">
+                            <fontDescription key="font" style="UICTFontTextStyleTitle2"/>
+                        </label>
+                        <button width="1" alignment="center" verticalAlignment="bottom" title="START" id="9Gq-Uv-gDo">
+                            <color key="backgroundColor" red="0.10400853309999999" green="0.41165769099999999" blue="0.46076101060000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="stopwatchButton" destination="AgC-eL-Hgc" id="L8g-uN-OHz"/>
+                            </connections>
+                        </button>
+                    </items>
+                    <connections>
+                        <outlet property="label" destination="yvf-rM-o4N" id="KhY-xd-lj1"/>
+                        <outlet property="startButton" destination="9Gq-Uv-gDo" id="czi-Kq-AaY"/>
+                        <outlet property="timerLabel" destination="6hW-3t-fE5" id="r3V-M3-m8A"/>
+                        <segue destination="SEG-Uy-yNM" kind="relationship" relationship="nextPage" id="jO6-My-r8Z"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="-33" y="345"/>
+        </scene>
+        <!--Static Notification Interface Controller-->
+        <scene sceneID="AEw-b0-oYE">
+            <objects>
+                <notificationController id="YCC-NB-fut">
+                    <items>
+                        <label alignment="left" text="Alert Label" numberOfLines="0" id="IdU-wH-bcW"/>
+                    </items>
+                    <notificationCategory key="notificationCategory" identifier="myCategory" id="JfB-70-Muf"/>
+                    <connections>
+                        <outlet property="notificationAlertLabel" destination="IdU-wH-bcW" id="JKC-fr-R95"/>
+                        <segue destination="4sK-HA-Art" kind="relationship" relationship="dynamicNotificationInterface" id="kXh-Jw-8B1"/>
+                        <segue destination="eXb-UN-Cd0" kind="relationship" relationship="dynamicInteractiveNotificationInterface" id="mpB-YA-K8N"/>
+                    </connections>
+                </notificationController>
+            </objects>
+            <point key="canvasLocation" x="220" y="705"/>
+        </scene>
+        <!--Notification Controller-->
+        <scene sceneID="ZPc-GJ-vnh">
+            <objects>
+                <controller id="4sK-HA-Art" customClass="NotificationController" customModule="HourlyWatch" customModuleProvider="target"/>
+            </objects>
+            <point key="canvasLocation" x="476" y="705"/>
+        </scene>
+        <!--Notification Controller-->
+        <scene sceneID="Niz-AI-uX2">
+            <objects>
+                <controller id="eXb-UN-Cd0" customClass="NotificationController" customModule="HourlyWatch" customModuleProvider="target"/>
+            </objects>
+            <point key="canvasLocation" x="-41" y="705"/>
+        </scene>
+    </scenes>
+    <resources>
+        <namedColor name="primaryPurple">
+            <color red="0.45899999141693115" green="0.46299999952316284" blue="0.92000001668930054" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
