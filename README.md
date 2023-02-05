@@ -27,3 +27,5 @@ iPhone application for tracking the amount of hours worked.
 Sizing designed for iPhone 12/13 Mini.
 
 Functional for devices supporting iOS 15.2 and up.
+
+watchOS application supports a timer, but cannot yet save time information.
