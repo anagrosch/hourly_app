@@ -17,13 +17,13 @@ struct HelpInfo {
 class HelpCenterTableViewController: UITableViewController, UISearchBarDelegate {
     
     let sections = ["Troubleshooting", "General FAQ's"]
-    let dataText = [[HelpInfo(name: "How do I remove a job?", info: "To remove a button, press and hold the button until a pop up comes on your screen. Then select either \"Delete\" or \"Cancel\"."),
-                     HelpInfo(name: "How do I edit a job's information?", info: "Go to Settings, then press the job button that you want to change under ALL JOB INFO. Change the job's title and/or wage."),
-                     HelpInfo(name: "Why are my reported hours 0?", info: "The Total Hours page resets your hours to zero every week on Sunday at midnight. You can also reset your week's hours manually with the \"Reset Hours\" button located at the top left of the home screen.")],
+    let dataText = [[HelpInfo(name: "How do I remove a job?", info: "To remove a button, press and hold the button until a pop up comes on your screen. \n\nThen select either \"Delete\" or \"Cancel\".\n\n\n\n\n\n\n"),
+                     HelpInfo(name: "How do I edit a job's information?", info: "Go to Settings, then press the job button that you want to change under ALL JOB INFO. \n\nChange the job's title and/or wage.\n\n\n\n\n\n\n"),
+                     HelpInfo(name: "Why are my reported hours 0?", info: "The Total Hours page resets your hours to zero every week on Sunday at midnight. \n\nYou can also reset your week's hours manually with the \"Reset Hours\" button located at the top left of the home screen.\n\n\n\n\n")],
                     /* General FAQ's section */
-                    [HelpInfo(name: "How many jobs can I put?", info: "You can save a maximum of five jobs."),
-                     HelpInfo(name: "Can I clear my hours manually?", info: "You can manually clear all of your hours from the week with the arrow icon button located next to the settings button at the top of the home screen. Clearing the week's hours for a single job is also possible by going to Settings -> <job number> -> \"CLEAR HOURS\". However, you cannot reset the recorded hours for a single day."),
-                    HelpInfo(name: "Control hour rounding", info: "To have the recorded hours rounded to the nearest hour, set the Enable Rounding switch in Settings to ON."),
+                    [HelpInfo(name: "How many jobs can I put?", info: "You can save a maximum of five jobs.\n\n\n\n\n\n\n\n\n\n\n"),
+                     HelpInfo(name: "Can I clear my hours manually?", info: "You can manually clear all of your hours from the week with the arrow icon button located next to the settings button at the top of the home screen. \n\nClearing the week's hours for a single job is also possible by going to Settings -> <job number> -> \"CLEAR HOURS\". \n\nHowever, you cannot reset the recorded hours for a single day.\n"),
+                    HelpInfo(name: "Control hour rounding", info: "To have the recorded hours rounded to the nearest hour, set the Enable Rounding switch in Settings to ON.\n\n\n\n\n\n\n\n\n"),
                      HelpInfo(name: "Resetting App", info: "Pressing the \"DELETE ALL JOBS\" button in Settings will: \n\n(1) Delete each job's saved information.\n\n(2) Remove each job button on the home page.\n\n(3) Delete all recorded hours.\n\n(4) Enable Rounding will return to its ON position.")]
     ]
     

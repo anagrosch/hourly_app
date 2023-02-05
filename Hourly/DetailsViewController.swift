@@ -32,7 +32,7 @@ class DetailsViewController: UIViewController {
     
     override func viewDidLayoutSubviews() {
         line.frame = CGRect(x: 0, y: 2.2*navH, width: screen.width, height: 2)
-        label.frame = CGRect(x: 30, y: 2*(screen.height/13), width: screen.width - 60, height: 75)
+        label.frame = CGRect(x: 30, y: 2*(screen.height/13), width: screen.width - 60, height: 250)
     }
     
 }
